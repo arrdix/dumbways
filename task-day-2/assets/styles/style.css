@@ -31,7 +31,6 @@ nav ul li {
 }
 nav ul li:last-child {
     margin-left: auto;
-    color: red;
 }
 .nav-item {
     text-decoration: none;
