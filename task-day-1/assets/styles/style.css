@@ -40,7 +40,7 @@ body {
     color: black;
     font-weight: 600;
     text-decoration: none;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 .socmed-link {
     color: black;
@@ -67,6 +67,8 @@ body {
     box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1);
 }
 .profile-pic {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     width: 100%;
 }
 .image-card-footer {
