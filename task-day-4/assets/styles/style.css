@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    box-sizing: border-box;
+}
+.invisible {
+    display: none;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+/* nav styling starts here */
+
+nav {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding-inline: 2rem;
+    padding-block: .5rem;
+    box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.05);
+}
+nav ul {
+    padding-left: 4rem;
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+}
+nav ul li {
+    padding: 0;
+    list-style-type: none;
+}
+nav ul li:last-child {
+    margin-left: auto;
+}
+.nav-item {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    transition: opacity .3s ease;
+}
+.nav-item:hover {
+    opacity: .8;
+    transition: opacity .3s ease;
+}
+.nav-item.active {
+    font-weight: 800;
+}
+.nav-contact {
+    font-size: 1rem;
+    font-weight: 400;
+    padding-block: .5rem;
+    padding-inline: 1.2rem;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+}
+.nav-logo {
+    width: 50px;
+}
+
+/* add project styling starts here */
+
+.wrapper.new-project {
+    width: 35%;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-contact {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.date-group {
+    display: flex;
+    gap: 1rem;
+}
+.start-date,
+.end-date {
+    width: 100%;
+}
+.label-group {
+    display: flex;
+    align-items: center;
+}
+.label-group p {
+    margin: 0;
+    margin-left: auto;
+    color: red;
+    font-weight: 300;
+}
+label {
+    font-weight: 500;
+}
+input,
+select,
+textarea {
+    width: 100%;
+    height: 2rem;
+    background-color: white;
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    padding-left: 10px;
+    box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.1);
+}
+textarea {
+    padding: 10px;
+    height: 100px;
+    resize: none;
+}
+input[type="submit"] {
+    width: 40%;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    margin-left: auto;
+    transition: opacity .3s ease;
+}
+input[type="submit"]:hover {
+    opacity: .8;
+    transition: opacity .3s ease;
+    cursor: pointer;
+}
+.checkboxes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 1rem;
+}
+.checkbox-group {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    box-shadow: none;
+}
+input[type="file"] {
+    padding: 0;
+}
+input::file-selector-button {
+    width: 100px;
+    color: darkgray;
+    height: 100%;
+    border: none;
+    margin-right: 10px;
+    background-color: rgb(231, 231, 231);
+    cursor: pointer;
+}
+
+/* projects styling starts here */
+
+.wrapper.projects {
+    width: 100%;
+    padding-block: 2rem;
+    padding-inline: 5rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.showcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+}
+.project-card {
+    width: 350px;
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, 0.2);
+}
+.project-image {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: .5rem;
+}
+.project-title {
+    font-size: 1.2rem;
+    margin: 0;
+}
+.project-duration {
+    font-size: .8rem;
+    color: darkgray;
+    margin: 0;
+    margin-bottom: 1.5rem;
+}
+.project-summary {
+    font-size: .9rem;
+    font-weight: 400;
+    margin: 0;
+}
+.tech-group {
+    margin-block: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+.tech-group i {
+    font-size: 2.5rem;
+}
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+.edit-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding-block: .5rem;
+    transition: opacity .3s ease-in-out;
+}
+.delete-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    color: maroon;
+    transition: opacity .3s ease-in-out;
+}
+.delete-btn:hover,
+.edit-btn:hover {
+    cursor: pointer;
+    opacity: .8;
+    transition: opacity .3s ease-in-out;
+}

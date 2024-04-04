@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/task-day-4/assets/styles/style.css">
+    <title>My Project | Personal Web</title>
+</head>
+<body>
+    <nav>
+        <img src="/task-day-4/assets/images/dumbways-logo.png" class="nav-logo" alt="">
+        <ul>
+            <li>
+                <a href="#" class="nav-item">Home</a>
+            </li>
+            <li>
+                <a href="#" class="nav-item">My Project</a>
+            </li>
+            <li>
+                <a href="#" class="nav-item nav-contact">Contact Me</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="wrapper new-project">
+        <h1>ADD NEW PROJECT</h1>
+        <form action="" class="form-contact">
+            <div class="label-group">
+                <label for="input-project-name">Project Name</label>
+                <p class="input-project-name-warning invisible">Please insert project name.</p>
+            </div>
+            <input type="text" id="input-project-name">
+
+            <div class="date-group">
+                <div class="start-date">
+                    <div class="label-group">
+                        <label for="input-start-date">Start Date</label>
+                        <p class="input-start-date-warning invisible">Please insert date.</p>
+                    </div>
+                    <input type="date" id="input-start-date">
+                </div>
+                <div class="end-date">
+                    <div class="label-group">
+                        <label for="input-end-date">End Date</label>
+                        <p class="input-end-date-warning invisible">Please insert date.</p>
+                    </div>
+                    <input type="date" id="input-end-date">
+                </div>
+            </div>
+            
+            <div class="label-group">
+                <label for="input-summary">Summary</label>
+                <p class="input-summary-warning invisible">Please insert summary.</p>
+            </div>
+            <input type="text" id="input-summary">
+
+            <div class="label-group">
+                <label for="input-description">Description</label>
+                <p class="input-description-warning invisible">Please insert description.</p>
+            </div>
+            <textarea name="input-description" id="input-description"></textarea>
+
+            <div class="label-group">
+                <label for="input-technologies">Technologies</label>
+                <p class="input-technologies-warning invisible">At least pick 1 tech..</p>
+            </div>
+            <div class="checkboxes">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="nodejs">
+                    <label for="nodejs">Node JS</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="reactjs">
+                    <label for="reactjs">React JS</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="vuejs">
+                    <label for="vuejs">Vue JS</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="javascript">
+                    <label for="javascript">Javascript</label>
+                </div>
+            </div>
+
+            <div class="label-group">
+                <label for="input-image">Upload image</label>
+                <p class="input-image invisible">Please insert an image.</p>
+            </div>
+            <input type="file" id="input-image">
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="wrapper projects">
+        <h1>MY PROJECTS</h1>
+        <div class="showcase">
+            <div class="project-card">
+                <img src="https://source.unsplash.com/random/350x250?coding&1" class="project-image" alt="">
+                <h2 class="project-title">Dumbways Mobile App</h2>
+                <p class="project-duration">Durasi: 3 bulan</p>
+    
+                <p class="project-summary">
+                    App that used for Dumbways student, it was deployed and can downloaded on playstore. Happy Download!
+                </p>
+                <div class="tech-group">
+                    <i class="fa-brands fa-react"></i>
+                    <i class="fa-brands fa-node-js"></i>
+                    <i class="fa-brands fa-vuejs"></i>
+                    <i class="fa-brands fa-js"></i>
+                </div>
+                <div class="button-group">
+                    <div class="edit-btn">Edit</div>
+                    <div class="delete-btn">Delete</div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://source.unsplash.com/random/350x250?coding&2" class="project-image" alt="">
+                <h2 class="project-title">Dumbways Mobile App</h2>
+                <p class="project-duration">Durasi: 3 bulan</p>
+    
+                <p class="project-summary">
+                    App that used for Dumbways student, it was deployed and can downloaded on playstore. Happy Download!
+                </p>
+                <div class="tech-group">
+                    <i class="fa-brands fa-react"></i>
+                    <i class="fa-brands fa-node-js"></i>
+                    <i class="fa-brands fa-vuejs"></i>
+                    <i class="fa-brands fa-js"></i>
+                </div>
+                <div class="button-group">
+                    <div class="edit-btn">Edit</div>
+                    <div class="delete-btn">Delete</div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://source.unsplash.com/random/350x250?coding&3" class="project-image" alt="">
+                <h2 class="project-title">Dumbways Mobile App</h2>
+                <p class="project-duration">Durasi: 3 bulan</p>
+    
+                <p class="project-summary">
+                    App that used for Dumbways student, it was deployed and can downloaded on playstore. Happy Download!
+                </p>
+                <div class="tech-group">
+                    <i class="fa-brands fa-react"></i>
+                    <i class="fa-brands fa-node-js"></i>
+                    <i class="fa-brands fa-vuejs"></i>
+                    <i class="fa-brands fa-js"></i>
+                </div>
+                <div class="button-group">
+                    <div class="edit-btn">Edit</div>
+                    <div class="delete-btn">Delete</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://kit.fontawesome.com/c64e7a230f.js" crossorigin="anonymous"></script>
+</body>
+</html>
