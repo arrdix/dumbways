@@ -331,3 +331,30 @@ input::file-selector-button {
 .detail-desc {
     text-align: justify;
 }
+
+/* empty message styling starts here */
+
+.empty-message-group {
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.empty-message-group h1,
+.empty-message-group p {
+    margin: 0;
+}
+.empty-message-group p {
+    margin-bottom: 2rem;
+}
+.empty-message-group i {
+    font-size: 10rem;
+    margin-bottom: 2rem;
+}
+.empty-message-group a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: steelblue;
+}

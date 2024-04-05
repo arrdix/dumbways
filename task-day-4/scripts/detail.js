@@ -9,6 +9,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (requestedProject) {
         renderDetail(requestedProject)
+    } else {
+        render404()
     }
 })
 
@@ -25,9 +27,8 @@ function renderDetail(project) {
 }
 
 function detailCreator(project) {
-    const { id, name, startDate, endDate, duration, description, technologies, image } = project
+    const { name, startDate, endDate, duration, description, technologies, image } = project
     const techHTML = technologies.map((tech) => {
-
         return (
             `
             <div class="tech-icon-group">
@@ -64,6 +65,26 @@ function detailCreator(project) {
                 <div class="detail-desc">
                     ${description}
                 </div>
+            </div>
+        `
+    )
+}
+
+function render404() {
+    const wrapper = document.querySelector('.wrapper.project-detail')
+    const notFoundTemplate = notFoundCreator()
+
+    wrapper.innerHTML = notFoundTemplate
+}
+
+function notFoundCreator() {
+    return (
+        `
+            <div class="empty-message-group">
+                <h1>Oh, no! I am sorry.</h1>
+                <p>Unfortunately, at this moment this website can only display the details of the existing projects, not the new one.</p>
+                <i class="fa-regular fa-face-frown"></i>
+                <a href="/task-day-4/index.html">Go Back</a>
             </div>
         `
     )
