@@ -1,4 +1,5 @@
 import { projects } from "./data.js";
+import { getDuration, getImageURL, getTechs } from './helpers/helper.js'
 
 window.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector('.form-new-project')
@@ -22,8 +23,6 @@ function formHandler(projects) {
     const inputImage = document.getElementById('input-image').files[0]
     const inputCheckboxes = document.querySelectorAll('.checkbox')
 
-    const inputs = [inputName, inputStartDate, inputEndDate, inputSummary, inputDescription, inputImage, inputCheckboxes]
-    
     const project = {
         id: projects.length + 1,
         name: inputName,
@@ -38,50 +37,25 @@ function formHandler(projects) {
     renderProject(project)
 }
 
-function getImageURL(image) {
-    return URL.createObjectURL(image)
-}
-
-function getTechs(checkboxes) {
-    const techs = []
-    
-    checkboxes.forEach((checkbox) => {
-        if (checkbox.checked) {
-            techs.push(checkbox.value)
-        }
-    })
-
-    return techs
-}
-
 function renderProject(project) {
     const showcase = document.querySelector('.showcase')
 
     const duration = getDuration(project.startDate, project.endDate)
     const cardTemplate = cardCreator({
-        id: project.id,
-        name: project.name,
-        duration: duration,
-        summary: project.summary,
-        techs: project.technologies,
-        image: project.image
+        ...project,
+        duration: duration
     })
 
     showcase.innerHTML += cardTemplate
 }
 
-function getDuration(startDate, endDate) {
-    // getDuration implementation will be available on Task Day 4
-    return '3 bulan'
-}
-
 function cardCreator(project) {
-    const { id, name, duration, summary, techs, image } = project
+    const { id, name, duration, summary, technologies, image } = project
 
     return (
         `
         <div class="project-card">
-            <a href="/task-day-4/detail/${id}" class="project-detail-link">
+            <a href="/task-day-4/detail.html?id=${id}" class="project-detail-link">
                 <img src="${image}" class="project-image" alt="Project image">
                 <h2 class="project-title">${name}</h2>
             </a>
@@ -90,7 +64,7 @@ function cardCreator(project) {
                 ${summary}
             </p>
             <div class="tech-group">
-                ${techs.map((tech) => `<i class="fa-brands fa-${tech}"></i>`).join('')}
+                ${technologies.map((tech) => `<i class="fa-brands fa-${tech}"></i>`).join('')}
             </div>
             <div class="button-group">
                 <div class="edit-btn">Edit</div>
