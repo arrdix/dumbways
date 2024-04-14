@@ -57,7 +57,7 @@ function cardCreator(project) {
                 <img src="${image}" class="project-image" alt="Project image">
                 <h2 class="project-title">${name}</h2>
             </a>
-            <p class="project-duration">Durasi: ${duration}</p>
+            <p class="project-duration">Duration: ${duration}</p>
             <p class="project-summary">
                 ${summary}
             </p>
