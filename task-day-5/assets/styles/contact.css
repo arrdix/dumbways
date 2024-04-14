@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    box-sizing: border-box;
+}
+.invisible {
+    display: none;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+nav {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding-inline: 2rem;
+    padding-block: .5rem;
+    z-index: 1000;
+    box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.05);
+}
+nav ul {
+    padding-left: 4rem;
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+}
+nav ul li {
+    padding: 0;
+    list-style-type: none;
+}
+nav ul li:last-child {
+    margin-left: auto;
+}
+.nav-item {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    transition: opacity .3s ease;
+}
+.nav-item:hover {
+    opacity: .8;
+    transition: opacity .3s ease;
+}
+.nav-item.active {
+    font-weight: 800;
+}
+.nav-contact {
+    font-size: 1rem;
+    font-weight: 400;
+    padding-block: .5rem;
+    padding-inline: 1.2rem;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+}
+.nav-logo {
+    width: 50px;
+}
+.wrapper {
+    width: 25%;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-contact {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.label-group {
+    display: flex;
+    align-items: center;
+}
+.label-group p {
+    margin: 0;
+    margin-left: auto;
+    color: red;
+    font-weight: 300;
+}
+label {
+    font-weight: 500;
+}
+input,
+select,
+textarea {
+    width: 100%;
+    height: 2rem;
+    background-color: white;
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.1);
+}
+textarea {
+    height: 100px;
+    resize: none;
+}
+input[type="submit"] {
+    width: 40%;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    margin-left: auto;
+    transition: opacity .3s ease;
+}
+input[type="submit"]:hover {
+    opacity: .8;
+    transition: opacity .3s ease;
+    cursor: pointer;
+}
