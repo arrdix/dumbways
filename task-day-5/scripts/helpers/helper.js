@@ -16,12 +16,34 @@ export function getDuration(startDate, endDate) {
     }
 }
 
+export function formatDate(date) {
+    const dateInstance = new Date(date)
+    const monthStr = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ]
+
+    const day = dateInstance.getDate()
+    const month = monthStr[dateInstance.getMonth()]
+    const year = dateInstance.getFullYear()
+
+    return `${day} ${month} ${year}`
+}
+
 export function getImageURL(image) {
+    const labelWarning = document.querySelector('.input-image-warning')
+
+    if (!image) {
+        labelWarning.classList.remove('invisible')
+        return
+    }
+
+    labelWarning.classList.add('invisible')
     return URL.createObjectURL(image)
 }
 
 export function getTechs(checkboxes) {
     const techs = []
+    const labelWarning = document.querySelector('.input-technologies-warning')
     
     checkboxes.forEach((checkbox) => {
         if (checkbox.checked) {
@@ -29,6 +51,12 @@ export function getTechs(checkboxes) {
         }
     })
 
+    if (!techs.length) {
+        labelWarning.classList.remove('invisible')
+        return
+    }
+
+    labelWarning.classList.add('invisible')
     return techs
 }
 
@@ -43,4 +71,44 @@ export function getTechName(tech) {
         case 'js':
             return 'JavaScript'
     }
+}
+
+export function formValidation(inputs) {
+    const dataKey = []
+    const validData = []
+
+    inputs.forEach(input => {
+        const inputValue = input.value
+        const inputId = input.id
+        const inputName = inputId.split('-')[1]
+        const labelWarning = document.querySelector(`.${inputId}-warning`)
+        const inputValidated = inputValidation(inputValue)
+
+        if (!inputValidated) {
+            labelWarning.classList.remove("invisible") 
+        } else {
+            labelWarning.classList.add("invisible")
+            
+            dataKey.push(inputName)
+            validData.push(inputValidated) 
+        }
+    })
+
+    if (validData.length === inputs.length) {
+        const data = {}
+
+        for (let i = 0; i < validData.length; i++) {
+            data[dataKey[i]] = validData[i]
+        }
+
+        return data
+    }
+}
+
+function inputValidation(input) {
+    if (input === '') {
+        return null
+    }
+
+    return input
 }

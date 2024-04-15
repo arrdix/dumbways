@@ -1,5 +1,5 @@
 import { projects } from "../data/data.js"
-import { getDuration, getTechName } from '../helpers/helper.js'
+import { getDuration, getTechName, formatDate } from '../helpers/helper.js'
 
 window.addEventListener("DOMContentLoaded", () => {
     const urlParam = new URLSearchParams(window.location.search)
@@ -17,9 +17,13 @@ window.addEventListener("DOMContentLoaded", () => {
 function renderDetail(project) {
     const wrapper = document.querySelector('.wrapper.project-detail')
     const duration = getDuration(project.startDate, project.endDate)
+    const startDate = formatDate(project.startDate)
+    const endDate = formatDate(project.endDate)
 
     const detailTemplate = detailCreator({
         ...project,
+        startDate: startDate,
+        endDate: endDate,
         duration: duration
     })
 

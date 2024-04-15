@@ -1,5 +1,5 @@
 import { projects } from "../data/data.js"
-import { getDuration, getImageURL, getTechs } from "../helpers/helper.js"
+import { formValidation, getDuration, getImageURL, getTechs } from "../helpers/helper.js"
 
 const form = document.querySelector('.form-new-project')
 
@@ -13,32 +13,37 @@ projects.forEach((project) => {
 })
 
 function formHandler(projects) {
-    const inputName = document.getElementById('input-project-name').value
-    const inputStartDate = document.getElementById('input-start-date').value
-    const inputEndDate = document.getElementById('input-end-date').value
-    const inputSummary = document.getElementById('input-summary').value
-    const inputDescription = document.getElementById('input-description').value
+    const inputName = document.getElementById('input-name-project')
+    const inputStartDate = document.getElementById('input-start-date')
+    const inputEndDate = document.getElementById('input-end-date')
+    const inputSummary = document.getElementById('input-summary')
+    const inputDescription = document.getElementById('input-description')
     const inputImage = document.getElementById('input-image').files[0]
     const inputCheckboxes = document.querySelectorAll('.checkbox')
 
-    const project = {
-        id: projects.length + 1,
-        name: inputName,
-        startDate: inputStartDate,
-        endDate: inputEndDate,
-        summary: inputSummary,
-        description: inputDescription,
-        image: getImageURL(inputImage),
-        technologies: getTechs(inputCheckboxes)
-    }
+    const inputs = [
+        inputName, inputStartDate, inputEndDate, inputSummary, inputDescription
+    ]
 
-    renderProject(project)
+    const validatedInputs = formValidation(inputs)
+    const techs = getTechs(inputCheckboxes)
+    const image = getImageURL(inputImage)
+
+
+    if (validatedInputs && image && techs.length) {
+        renderProject({
+            ...validatedInputs,
+            id: projects.length + 1,
+            technologies: techs,
+            image: image
+        })
+    }
 }
 
 function renderProject(project) {
     const showcase = document.querySelector('.showcase')
 
-    const duration = getDuration(project.startDate, project.endDate)
+    const duration = getDuration(project.start, project.end)
     const cardTemplate = cardCreator({
         ...project,
         duration: duration
