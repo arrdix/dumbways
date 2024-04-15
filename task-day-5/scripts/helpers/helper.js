@@ -1,6 +1,6 @@
 export function getDuration(startDate, endDate) {
-    const startDateMs = new Date(startDate).getTime()
-    const endDateMs = new Date(endDate).getTime()
+    const startDateMs = new Date(startDate)
+    const endDateMs = new Date(endDate)
     const diff = endDateMs - startDateMs
 
     const day = Math.floor(diff / (1000 * 60 * 60 * 24))
