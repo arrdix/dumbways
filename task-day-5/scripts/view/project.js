@@ -43,7 +43,7 @@ function formHandler(projects) {
 function renderProject(project) {
     const showcase = document.querySelector('.showcase')
 
-    const duration = getDuration(project.startDate, project.endDate)
+    const duration = getDuration(project.start, project.end)
     const cardTemplate = cardCreator({
         ...project,
         duration: duration

@@ -16,9 +16,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function renderDetail(project) {
     const wrapper = document.querySelector('.wrapper.project-detail')
-    const duration = getDuration(project.startDate, project.endDate)
-    const startDate = formatDate(project.startDate)
-    const endDate = formatDate(project.endDate)
+    const duration = getDuration(project.start, project.end)
+    const startDate = formatDate(project.start)
+    const endDate = formatDate(project.end)
 
     const detailTemplate = detailCreator({
         ...project,
