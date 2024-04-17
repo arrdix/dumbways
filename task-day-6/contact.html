@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/task-day-6/assets/styles/index.css">
+    <link rel="stylesheet" href="/task-day-6/assets/styles/contact.css">
+    <title>Contact | Personal Web</title>
+</head>
+<body>
+    <nav>
+        <img src="/task-day-6/assets/images/dumbways-logo.png" class="nav-logo" alt="">
+        <ul>
+            <li>
+                <a href="/task-day-6/index.html" class="nav-item">Home</a>
+            </li>
+            <li>
+                <a href="/task-day-6/project.html" class="nav-item">My Project</a>
+            </li>
+            <li>
+                <a href="#" class="nav-item nav-contact">Contact Me</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="wrapper">
+        <h1>GET IN TOUCH</h1>
+        <form action="" class="form-contact">
+            <div class="label-group">
+                <label for="input-name">Name</label>
+                <p class="input-name-warning invisible">Please insert name.</p>
+            </div>
+            <input type="text" id="input-name">
+
+            <div class="label-group">
+                <label for="input-email">Email</label>
+                <p class="input-email-warning invisible">Please insert email.</p>
+            </div>
+            <input type="text" id="input-email">
+
+            <div class="label-group">
+                <label for="input-phone">Phone Number</label>
+                <p class="input-phone-warning invisible">Please insert number.</p>
+            </div>
+            <input type="tel" id="input-phone">
+            
+            <div class="label-group">
+                <label for="input-subject">Subject</label>
+                <p class="input-subject-warning invisible">Please pick a subject.</p>
+            </div>
+            <select name="input-subject" id="input-subject">
+                <option value=""></option>
+                <option value="Collaboration">Collaboration</option>
+                <option value="Greeting">Greeting</option>
+                <option value="Offering">Offering</option>
+            </select>
+            
+            <div class="label-group">
+                <label for="input-message">Your Message</label>
+                <p class="input-message-warning invisible">Please insert message.</p>
+            </div>
+            <textarea name="input-message" id="input-message"></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script src="/task-day-6//scripts/view/contact.js" type="module"></script>
+</body>
+</html>

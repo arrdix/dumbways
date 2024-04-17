@@ -1,0 +1,93 @@
+.card {
+    margin-block: 7rem;
+    width: 80%;
+    padding: 4rem;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 25px 40px 10px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 4rem;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.title {
+    line-height: 1;
+}
+.description {
+    margin-bottom: 3rem;
+}
+.contact-btn {
+    font-size: 1.2rem;
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    transition: opacity .3s ease;
+}
+.contact-btn:hover {
+    cursor: pointer;
+    opacity: .8;
+    transition: opacity .3s ease;
+}
+.download-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+.download-link {
+    display: block;
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity .3s ease;
+}
+.download-link:hover {
+    opacity: .8;
+    transition: opacity .3s ease;
+}
+.download-icon {
+    font-size: 1.2rem;
+}
+.socmed-link {
+    color: black;
+    transition: opacity .3s ease;
+}
+.socmed-link:hover {
+    opacity: .8;
+    transition: opacity .3s ease;
+}
+.socmed-group {
+    width: 50%;
+    display: flex;
+    gap: 1rem;
+}
+.fa-brands {
+    font-size: 2rem;
+}
+.image-card {
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1);
+}
+.profile-pic {
+    width: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.image-card-footer {
+    padding: 1rem;
+}
+.name {
+    text-align: center;
+    line-height: 0;
+}
+.role {
+    text-align: center;
+}
