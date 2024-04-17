@@ -196,3 +196,49 @@ input::file-selector-button {
     opacity: .8;
     transition: opacity .3s ease-in-out;
 }
+
+/* responsive styling for small screen starts here */
+
+/* add project styling starts here */
+
+@media screen and (max-width: 896px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+    label {
+        font-size: 1rem;
+    }
+    .wrapper.new-project {
+        width: 50%;
+    }
+    .wrapper.new-project h1 {
+        font-size: 1.75rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    h1 {
+        font-size: 1.5rem !important;
+    }
+    label {
+        font-size: .9rem;
+    }
+    .wrapper.new-project {
+        width: 55%;
+        margin-top: 2rem;
+    }
+}
+
+/* projects styling starts here */
+
+@media screen and (max-width: 1156px) {
+    .showcase {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 776px) {
+    .showcase {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

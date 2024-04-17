@@ -1,5 +1,5 @@
 .wrapper {
-    width: 25%;
+    width: 30%;
     margin-top: 5rem;
     display: flex;
     flex-direction: column;
@@ -52,4 +52,31 @@ input[type="submit"]:hover {
     opacity: .8;
     transition: opacity .3s ease;
     cursor: pointer;
+}
+
+/* responsive styling for small screen starts here */
+
+@media screen and (max-width: 996px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+    label {
+        font-size: 1rem;
+    }
+    .wrapper {
+        width: 40%;   
+    }
+}
+
+@media screen and (max-width: 576px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    label {
+        font-size: .9rem;
+    }
+    .wrapper {
+        width: 50%;
+        margin-top: 2rem;
+    }
 }

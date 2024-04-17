@@ -8,20 +8,36 @@
     <title>My Projects | Personal Web</title>
 </head>
 <body>
-    <nav>
-        <img src="/task-day-6/assets/images/dumbways-logo.png" class="nav-logo" alt="">
-        <ul>
-            <li>
-                <a href="/task-day-6/index.html" class="nav-item">Home</a>
-            </li>
-            <li>
-                <a href="#" class="nav-item active">My Project</a>
-            </li>
-            <li>
-                <a href="/task-day-6/contact.html" class="nav-item nav-contact">Contact Me</a>
-            </li>
-        </ul>
-    </nav>
+    <div class="nav-container">
+        <nav class="navbar">
+            <img src="/task-day-6/assets/images/dumbways-logo.png" class="nav-logo" alt="">
+            <ul>
+                <li>
+                    <a href="/task-day-6/index.html" class="nav-item">Home</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item active">My Project</a>
+                </li>
+                <li>
+                    <a href="/task-day-6/contact.html" class="nav-item nav-contact">Contact Me</a>
+                    <i class="fa-solid fa-bars nav-item hamburger-btn"></i>
+                </li>
+            </ul>
+        </nav>
+        <nav class="hamburger">
+            <ul>
+                <li>
+                    <a href="/task-day-6/index.html" class="ham-item">Home</a>
+                </li>
+                <li>
+                    <a href="#" class="ham-item">My Project</a>
+                </li>
+                <li>
+                    <a href="/task-day-6/contact.html" class="ham-item">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
     <div class="wrapper new-project">
         <h1>ADD NEW PROJECT</h1>
@@ -101,5 +117,6 @@
     
     <script src="https://kit.fontawesome.com/c64e7a230f.js" crossorigin="anonymous"></script>
     <script src="/task-day-6/scripts/view/project.js" type="module"></script>
+    <script src="/task-day-6/scripts/view/nav.js" type="module"></script>
 </body>
 </html>
