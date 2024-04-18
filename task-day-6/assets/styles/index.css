@@ -107,7 +107,7 @@ body {
         transition: all .3s ease-in-out;
     }
     .hamburger ul li a:hover {
-        background-color: #E74B2B;
+        background-color: black;
         color: white;
         transition: all .3s ease-in-out
     }
