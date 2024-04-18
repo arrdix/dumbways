@@ -216,7 +216,7 @@ input::file-selector-button {
     }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 776px) {
     h1 {
         font-size: 1.5rem !important;
     }
