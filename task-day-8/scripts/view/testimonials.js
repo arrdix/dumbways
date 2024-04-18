@@ -1,8 +1,50 @@
 import { testimonials } from '../data/data.js'
 
 window.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn')
+
+    filterButtons.forEach((filterButton) => {
+        filterHandler(filterButton)
+    })
+
     renderTestimonials(testimonials)
 })
+
+function filterHandler(btn) {
+    btn.addEventListener('click', () => {
+        // parse to int because attribute is string
+        const requestedRating = parseInt(btn.getAttribute('rating'))
+        const filteredTestimonial = testimonials.filter((testimonials) => testimonials.rating == requestedRating)
+
+        if (!filteredTestimonial.length) {
+            return renderEmptyMessage()
+        }
+        
+        if (!requestedRating) {
+            return renderTestimonials(testimonials)
+        }
+
+        return renderTestimonials(filteredTestimonial)
+    })
+}
+
+function renderEmptyMessage() {
+    const emptyMessage = emptyMessageCreator()
+
+    const testimonialsWrapper = document.querySelector('.testimonials')
+    testimonialsWrapper.innerHTML = emptyMessage
+}
+
+function emptyMessageCreator() {
+    return (
+        `
+        <div class="empty-message">
+            <h2>Oops! I'm sorry.</h2>
+            <p>It looks like I don't have testimonial for selected star(s).</p>
+        </div>
+        `
+    )
+}
 
 function renderTestimonials(testimonials) {
     const testimonialCards = testimonials.map((testimonial) => {
@@ -38,8 +80,6 @@ function starsCreator(rating) {
     for (let i = 0; i < rating; i++) {
         stars.push('<i class="fa-solid fa-star"></i>')
     }
-
-    console.log(stars)
 
     return stars.join('')
 }
