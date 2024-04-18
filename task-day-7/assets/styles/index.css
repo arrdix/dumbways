@@ -78,7 +78,7 @@ body {
 
 /* responsive styling for small screen starts here */
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 776px) {
     .hamburger {
         display: block;
         height: 0;
