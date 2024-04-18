@@ -16,14 +16,14 @@ function filterHandler(btn) {
         const requestedRating = parseInt(btn.getAttribute('rating'))
         const filteredTestimonial = testimonials.filter((testimonials) => testimonials.rating == requestedRating)
 
-        if (!filteredTestimonial.length) {
-            return renderEmptyMessage()
-        }
-        
         if (!requestedRating) {
             return renderTestimonials(testimonials)
         }
 
+        if (!filteredTestimonial.length) {
+            return renderEmptyMessage()
+        }
+        
         return renderTestimonials(filteredTestimonial)
     })
 }
