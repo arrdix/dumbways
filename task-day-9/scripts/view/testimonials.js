@@ -1,16 +1,29 @@
-import { testimonials } from '../data/data.js'
+import { getTesimonialData } from '../network/testimonialsSource.js'
 
 window.addEventListener('DOMContentLoaded', () => {
+    getTestimonials()
+})
+
+async function getTestimonials() {
+    try {
+        const response = await getTesimonialData()
+        initTestimonials(response)
+    } catch(err) {
+        throw new Error(err)
+    }
+}
+
+function initTestimonials(testimonials) {
     const filterButtons = document.querySelectorAll('.filter-btn')
 
     filterButtons.forEach((filterButton) => {
-        filterHandler(filterButton)
+        filterHandler(filterButton, testimonials)
     })
 
     renderTestimonials(testimonials)
-})
+}
 
-function filterHandler(btn) {
+function filterHandler(btn, testimonials) {
     btn.addEventListener('click', () => {
         // parse to int because attribute is string
         const requestedRating = parseInt(btn.getAttribute('rating'))
