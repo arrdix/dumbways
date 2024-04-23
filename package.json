@@ -1,0 +1,16 @@
+{
+    "name": "dumbways-task",
+    "version": "1.0.0",
+    "description": "A collection of Dumbways Bootcamp's daily task.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "Yudistira Ardi",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.19.2",
+        "hbs": "^4.2.0"
+    }
+}
