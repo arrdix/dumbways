@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/task-day-10/assets/styles/index.css" />
+        <link rel="stylesheet" href="/task-day-10/assets/styles/project.css" />
+        <title>My Projects | Personal Web</title>
+    </head>
+    <body>
+        <div class="nav-container">
+            <nav class="navbar">
+                <img
+                    src="/task-day-10/assets/images/dumbways-logo.png"
+                    class="nav-logo"
+                    alt=""
+                />
+                <ul>
+                    <li>
+                        <a href="/task-day-10/index.html" class="nav-item"
+                            >Home</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item active">My Project</a>
+                    </li>
+                    <li>
+                        <a
+                            href="/task-day-10/testimonials.html"
+                            class="nav-item"
+                            >Testimonials</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/task-day-10/contact.html"
+                            class="nav-item nav-contact"
+                            >Contact Me</a
+                        >
+                        <i class="fa-solid fa-bars nav-item hamburger-btn"></i>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="hamburger">
+                <ul>
+                    <li>
+                        <a href="/task-day-10/index.html" class="ham-item"
+                            >Home</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#" class="ham-item">My Project</a>
+                    </li>
+                    <li>
+                        <a
+                            href="/task-day-10/testimonials.html"
+                            class="ham-item"
+                            >Testimonials</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/task-day-10/contact.html" class="ham-item"
+                            >Contact</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="wrapper new-project">
+            <h1>ADD NEW PROJECT</h1>
+            <form action="" class="form-new-project">
+                <div class="label-group">
+                    <label for="input-name-project">Project Name</label>
+                    <p class="input-name-project-warning invisible">
+                        Please insert project name.
+                    </p>
+                </div>
+                <input type="text" id="input-name-project" />
+
+                <div class="date-group">
+                    <div class="start-date">
+                        <div class="label-group">
+                            <label for="input-start-date">Start Date</label>
+                            <p class="input-start-date-warning invisible">
+                                Please insert date.
+                            </p>
+                        </div>
+                        <input type="date" id="input-start-date" />
+                    </div>
+                    <div class="end-date">
+                        <div class="label-group">
+                            <label for="input-end-date">End Date</label>
+                            <p class="input-end-date-warning invisible">
+                                Please insert date.
+                            </p>
+                        </div>
+                        <input type="date" id="input-end-date" />
+                    </div>
+                </div>
+
+                <div class="label-group">
+                    <label for="input-summary">Summary</label>
+                    <p class="input-summary-warning invisible">
+                        Please insert summary.
+                    </p>
+                </div>
+                <input type="text" id="input-summary" />
+
+                <div class="label-group">
+                    <label for="input-description">Description</label>
+                    <p class="input-description-warning invisible">
+                        Please insert description.
+                    </p>
+                </div>
+                <textarea
+                    name="input-description"
+                    id="input-description"
+                ></textarea>
+
+                <div class="label-group">
+                    <label for="input-technologies">Technologies</label>
+                    <p class="input-technologies-warning invisible">
+                        Please pick at least 1 tech.
+                    </p>
+                </div>
+                <div class="checkboxes">
+                    <div class="checkbox-group">
+                        <input
+                            type="checkbox"
+                            value="node-js"
+                            class="checkbox"
+                            id="nodejs"
+                        />
+                        <label for="nodejs">Node JS</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input
+                            type="checkbox"
+                            value="react"
+                            class="checkbox"
+                            id="reactjs"
+                        />
+                        <label for="reactjs">React JS</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input
+                            type="checkbox"
+                            value="vuejs"
+                            class="checkbox"
+                            id="vuejs"
+                        />
+                        <label for="vuejs">Vue JS</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input
+                            type="checkbox"
+                            value="js"
+                            class="checkbox"
+                            id="javascript"
+                        />
+                        <label for="javascript">Javascript</label>
+                    </div>
+                </div>
+
+                <div class="label-group">
+                    <label for="input-image">Upload image</label>
+                    <p class="input-image-warning invisible">
+                        Please insert an image.
+                    </p>
+                </div>
+                <input type="file" id="input-image" />
+
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+        <div class="wrapper projects">
+            <h1>MY PROJECTS</h1>
+            <div class="showcase"></div>
+        </div>
+
+        <script
+            src="https://kit.fontawesome.com/c64e7a230f.js"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="/task-day-10/scripts/view/project.js"
+            type="module"
+        ></script>
+        <script src="/task-day-10/scripts/view/nav.js" type="module"></script>
+    </body>
+</html>
