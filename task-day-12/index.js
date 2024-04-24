@@ -52,11 +52,41 @@ app.get('/showcase', (req, res) => {
     res.render('showcase', { projects })
 })
 
+app.get('/edit-project/:id', (req, res) => {
+    const { id } = req.params
+    const requestedProject = projects.find((project) => project.id == id)
+
+    requestedProject.technologies.forEach((tech) => {
+        requestedProject[tech] = 'checked'
+    })
+
+    res.render('edit-project', requestedProject)
+})
+
+app.put('/edit-project/:id', (req, res) => {
+    const { id } = req.params
+    const editedProject = req.body
+
+    projects = projects.map((project) => {
+        if (project.id == id) {
+            return {
+                id: parseInt(id),
+                ...editedProject,
+                image: '/assets/images/jennie.jpg',
+            }
+        }
+
+        return project
+    })
+
+    res.send({ status: 'Ok!' })
+})
+
 app.get('/detail/:id', (req, res) => {
     const { id } = req.params
-    const project = projects.find((project) => project.id == id)
+    const requestedProject = projects.find((project) => project.id == id)
 
-    res.render('detail', project)
+    res.render('detail', requestedProject)
 })
 
 app.get('/testimonials', (req, res) => {

@@ -94,11 +94,15 @@
                             {{{this.techHTML}}}
                         </div>
                         <div class='button-group'>
-                            <button class='edit-btn'>Edit</button>
-                            <button
-                                class='delete-btn'
-                                data-id='{{this.id}}'
-                            >Delete</button>
+                            <a
+                                href='/edit-project/{{this.id}}'
+                                class='edit-btn'
+                            >
+                                Edit
+                            </a>
+                            <button class='delete-btn' data-id='{{this.id}}'>
+                                Delete
+                            </button>
                         </div>
                     </div>
                 {{/each}}

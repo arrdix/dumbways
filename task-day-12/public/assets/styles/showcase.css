@@ -71,6 +71,7 @@
 }
 .edit-btn {
     width: 100%;
+    text-decoration: none;
     display: flex;
     justify-content: center;
     background-color: black;

@@ -7,8 +7,8 @@ export function prepareProject(project) {
 
     return {
         ...project,
-        start: startDate,
-        end: endDate,
+        startDate: startDate,
+        endDate: endDate,
         duration: duration,
         techHTML: techHTML,
         techDetailHTML: techDetailHTML,
