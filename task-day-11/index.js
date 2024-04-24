@@ -12,6 +12,9 @@ app.set('views', path.join(__dirname, './views'))
 
 app.use(express.static(path.join(__dirname, './public')))
 
+// middleware
+app.use(express.urlencoded({ extended: false }))
+
 // routes
 app.get('/', (req, res) => {
     res.render('index')
@@ -23,6 +26,34 @@ app.get('/index', (req, res) => {
 
 app.get('/project', (req, res) => {
     res.render('project')
+})
+
+app.post('/project', (req, res) => {
+    const {
+        projectName,
+        startDate,
+        endDate,
+        summary,
+        nodejs,
+        reactjs,
+        vuejs,
+        js,
+        description,
+        image,
+    } = req.body
+
+    console.log(`Project Name: ${projectName}`)
+    console.log(`Start Date: ${startDate}`)
+    console.log(`End Date: ${endDate}`)
+    console.log(`Summary: ${summary}`)
+    console.log(`Description: ${description}`)
+    console.log(`Node JS: ${nodejs}`)
+    console.log(`React JS: ${reactjs}`)
+    console.log(`Vue JS: ${vuejs}`)
+    console.log(`JavaScript: ${js}`)
+    console.log(`Project Image: ${image}`)
+
+    res.redirect('/showcase')
 })
 
 app.get('/showcase', (req, res) => {

@@ -58,7 +58,7 @@
                             >Testimonials</a>
                         </li>
                     </ul>
-                    <form class='d-flex' role='search'>
+                    <form class='d-flex mb-0' role='search'>
                         <a href='/contact' class='btn btn-dark'>
                             Contact Me
                         </a>
@@ -73,7 +73,8 @@
         >
             <h1 class='title fw-bold'>ADD NEW PROJECT</h1>
             <form
-                action=''
+                method='POST'
+                action='/project'
                 class='mt-3 w-100 d-flex flex-column align-items-center form-new-project'
             >
                 <div class='form-item w-50'>
@@ -81,6 +82,7 @@
                         Project Name
                     </label>
                     <input
+                        name='projectName'
                         type='text'
                         class='form-control mb-1'
                         id='input-name-project'
@@ -99,6 +101,7 @@
                                 Start Date
                             </label>
                             <input
+                                name='startDate'
                                 type='date'
                                 class='form-control mb-1'
                                 id='input-start-date'
@@ -116,6 +119,7 @@
                                 End Date
                             </label>
                             <input
+                                name='endDate'
                                 type='date'
                                 class='form-control mb-1'
                                 id='input-end-date'
@@ -134,6 +138,7 @@
                         Summary
                     </label>
                     <input
+                        name='summary'
                         type='text'
                         class='form-control mb-1'
                         id='input-summary'
@@ -148,6 +153,7 @@
                         Description
                     </label>
                     <textarea
+                        name='description'
                         class='form-control mb-1'
                         id='input-description'
                         rows='3'
@@ -166,6 +172,7 @@
                     <div class='col p-0'>
                         <div class='form-check d-flex align-items-center gap-3'>
                             <input
+                                name='nodejs'
                                 class='form-check-input checkbox'
                                 type='checkbox'
                                 value='node-js'
@@ -178,6 +185,7 @@
                         </div>
                         <div class='form-check d-flex align-items-center gap-3'>
                             <input
+                                name='reactjs'
                                 class='form-check-input checkbox'
                                 type='checkbox'
                                 value='react'
@@ -192,6 +200,7 @@
                     <div class='col p-0'>
                         <div class='form-check d-flex align-items-center gap-3'>
                             <input
+                                name='vuejs'
                                 class='form-check-input checkbox'
                                 type='checkbox'
                                 value='vuejs'
@@ -204,6 +213,7 @@
                         </div>
                         <div class='form-check d-flex align-items-center gap-3'>
                             <input
+                                name='js'
                                 class='form-check-input checkbox'
                                 type='checkbox'
                                 value='js'
@@ -227,6 +237,7 @@
                         Upload image
                     </label>
                     <input
+                        name='image'
                         class='form-control mb-1'
                         type='file'
                         id='input-image'
