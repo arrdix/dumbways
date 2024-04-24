@@ -37,7 +37,15 @@ app.post('/project', (req, res) => {
         image: '/assets/images/jennie.jpg',
     })
 
-    res.redirect('/showcase')
+    res.send({ status: 'Ok!' })
+})
+
+app.delete('/project/:id', (req, res) => {
+    const { id } = req.params
+
+    projects = projects.filter((project) => project.id != id)
+
+    res.send({ status: 'Ok!' })
 })
 
 app.get('/showcase', (req, res) => {

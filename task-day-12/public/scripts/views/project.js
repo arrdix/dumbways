@@ -7,19 +7,23 @@ import {
 
 document
     .querySelector('.form-new-project')
-    .addEventListener('submit', (event) => {
+    .addEventListener('submit', async (event) => {
         event.preventDefault()
 
-        const project = formHandler()
         const baseUrl = window.location.origin
+        const project = formHandler()
 
-        fetch(`${baseUrl}/project`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(project),
-        })
+        if (project) {
+            await fetch(`${baseUrl}/project`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(project),
+            })
+
+            window.location.assign('/showcase')
+        }
     })
 
 function formHandler() {

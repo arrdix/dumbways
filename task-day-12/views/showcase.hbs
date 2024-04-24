@@ -94,8 +94,11 @@
                             {{{this.techHTML}}}
                         </div>
                         <div class='button-group'>
-                            <div class='edit-btn'>Edit</div>
-                            <div class='delete-btn'>Delete</div>
+                            <button class='edit-btn'>Edit</button>
+                            <button
+                                class='delete-btn'
+                                data-id='{{this.id}}'
+                            >Delete</button>
                         </div>
                     </div>
                 {{/each}}
@@ -111,5 +114,6 @@
             src='https://kit.fontawesome.com/c64e7a230f.js'
             crossorigin='anonymous'
         ></script>
+        <script src='/scripts/views/showcase.js' type='module'></script>
     </body>
 </html>
