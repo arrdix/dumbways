@@ -21,6 +21,18 @@ app.get('/project', (req, res) => {
     res.render('project')
 })
 
+app.get('/showcase', (req, res) => {
+    res.render('showcase')
+})
+
+app.get('/detail/:id', (req, res) => {
+    res.render('detail', req.params)
+})
+
+app.get('/testimonials', (req, res) => {
+    res.render('testimonials')
+})
+
 app.get('/contact', (req, res) => {
     res.render('contact')
 })

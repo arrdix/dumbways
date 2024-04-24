@@ -4,6 +4,7 @@ import { getDuration, getTechName, formatDate } from '../helpers/helper.js'
 window.addEventListener('DOMContentLoaded', () => {
     const urlParam = new URLSearchParams(window.location.search)
     const projectId = urlParam.get('id')
+    console.log(projectId)
 
     const requestedProject = projects.find(
         (project) => project.id === parseInt(projectId)

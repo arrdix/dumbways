@@ -8,8 +8,7 @@
             integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH'
             crossorigin='anonymous'
         />
-        <link rel='stylesheet' href='/task-day-11/assets/styles/custom.css' />
-        <link rel='stylesheet' href='/task-day-11/assets/styles/project.css' />
+        <link rel='stylesheet' href='/assets/styles/custom.css' />
         <title>My Projects | Personal Web</title>
     </head>
     <body>
@@ -17,9 +16,9 @@
             class='navbar navbar-expand-lg bg-body-tertiary shadow position-fixed top-0 z-1 w-100'
         >
             <div class='container-fluid'>
-                <a class='navbar-brand me-5' href='/task-day-11/index.html'>
+                <a class='navbar-brand me-5' href='/index'>
                     <img
-                        src='/task-day-11/assets/images/dumbways-logo.png'
+                        src='/assets/images/dumbways-logo.png'
                         width='50'
                         height='35'
                         class='d-inline-block align-text-top'
@@ -45,7 +44,7 @@
                             <a
                                 class='nav-link fw-semibold'
                                 aria-current='page'
-                                href='/task-day-11/index.html'
+                                href='/index'
                             >Home</a>
                         </li>
                         <li class='nav-item'>
@@ -55,15 +54,12 @@
                         <li class='nav-item'>
                             <a
                                 class='nav-link fw-semibold'
-                                href='/task-day-11/testimonials.html'
+                                href='/testimonials'
                             >Testimonials</a>
                         </li>
                     </ul>
                     <form class='d-flex' role='search'>
-                        <a
-                            href='/task-day-11/contact.html'
-                            class='btn btn-dark'
-                        >
+                        <a href='/contact' class='btn btn-dark'>
                             Contact Me
                         </a>
                     </form>
@@ -240,15 +236,20 @@
                     </p>
                 </div>
 
-                <div class='form-item mb3 w-50 d-flex justify-content-end'>
-                    <button class='btn btn-dark px-5'>Submit</button>
+                <div
+                    class='form-item w-50 d-flex justify-content-between align-items-end'
+                >
+                    <a
+                        href='/showcase'
+                        class='link-underline link-underline-opacity-0 text-dark'
+                    >
+                        <h5 class='subtitle fw-medium'>Show Projects</h5>
+                    </a>
+                    <div class='form-item mb3 w-50 d-flex justify-content-end'>
+                        <button class='btn btn-dark px-5'>Submit</button>
+                    </div>
                 </div>
             </form>
-        </div>
-
-        <div class='wrapper projects'>
-            <h1>MY PROJECTS</h1>
-            <div class='showcase'></div>
         </div>
 
         <script
@@ -259,10 +260,6 @@
         <script
             src='https://kit.fontawesome.com/c64e7a230f.js'
             crossorigin='anonymous'
-        ></script>
-        <script
-            src='/task-day-11/scripts/view/project.js'
-            type='module'
         ></script>
     </body>
 </html>

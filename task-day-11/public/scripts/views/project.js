@@ -65,7 +65,7 @@ function cardCreator(project) {
 
     return `
         <div class="project-card">
-            <a href="/task-day-11/detail.html?id=${id}" class="project-detail-link">
+            <a href="/detail/${id}" class="project-detail-link">
                 <img src="${image}" class="project-image" alt="Project image">
                 <h2 class="project-title">${name}</h2>
             </a>
