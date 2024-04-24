@@ -1,4 +1,4 @@
-export function getDuration(startDate, endDate) {
+function getDuration(startDate, endDate) {
     const startDateMs = new Date(startDate)
     const endDateMs = new Date(endDate)
     const diff = endDateMs - startDateMs
@@ -16,10 +16,21 @@ export function getDuration(startDate, endDate) {
     }
 }
 
-export function formatDate(date) {
+function formatDate(date) {
     const dateInstance = new Date(date)
     const monthStr = [
-        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
     ]
 
     const day = dateInstance.getDate()
@@ -29,7 +40,7 @@ export function formatDate(date) {
     return `${day} ${month} ${year}`
 }
 
-export function getImageURL(image) {
+function getImageURL(image) {
     const labelWarning = document.querySelector('.input-image-warning')
 
     if (!image) {
@@ -41,10 +52,10 @@ export function getImageURL(image) {
     return URL.createObjectURL(image)
 }
 
-export function getTechs(checkboxes) {
+function getTechs(checkboxes) {
     const techs = []
     const labelWarning = document.querySelector('.input-technologies-warning')
-    
+
     checkboxes.forEach((checkbox) => {
         if (checkbox.checked) {
             techs.push(checkbox.value)
@@ -60,8 +71,8 @@ export function getTechs(checkboxes) {
     return techs
 }
 
-export function getTechName(tech) {
-    switch(tech) {
+function getTechName(tech) {
+    switch (tech) {
         case 'node-js':
             return 'Node JS'
         case 'react':
@@ -73,11 +84,11 @@ export function getTechName(tech) {
     }
 }
 
-export function formValidation(inputs) {
+function formValidation(inputs) {
     const dataKey = []
     const validData = []
 
-    inputs.forEach(input => {
+    inputs.forEach((input) => {
         const inputValue = input.value
         const inputId = input.id
         const inputName = inputId.split('-')[1]
@@ -85,12 +96,12 @@ export function formValidation(inputs) {
         const inputValidated = inputValidation(inputValue)
 
         if (!inputValidated) {
-            labelWarning.classList.remove("invisible") 
+            labelWarning.classList.remove('invisible')
         } else {
-            labelWarning.classList.add("invisible")
-            
+            labelWarning.classList.add('invisible')
+
             dataKey.push(inputName)
-            validData.push(inputValidated) 
+            validData.push(inputValidated)
         }
     })
 
@@ -111,4 +122,14 @@ function inputValidation(input) {
     }
 
     return input
+}
+
+module.exports = {
+    getDuration: getDuration,
+    formatDate: formatDate,
+    getImageURL: getImageURL,
+    getTechs: getTechs,
+    getTechName: getTechName,
+    formValidation: formValidation,
+    inputValidation: inputValidation,
 }

@@ -1,4 +1,4 @@
-export const projects = [
+const projects = [
     {
         id: 1,
         name: 'Dumbways - Dummy 1',
@@ -60,3 +60,5 @@ export const projects = [
         image: '/assets/images/project-5.jpg',
     },
 ]
+
+module.exports = projects
