@@ -1,4 +1,4 @@
-function prepareProject(project) {
+export function prepareProject(project) {
     const duration = getDuration(project.start, project.end)
     const startDate = formatDate(project.start)
     const endDate = formatDate(project.end)
@@ -15,7 +15,7 @@ function prepareProject(project) {
     }
 }
 
-function techHTMLCreator(technologies) {
+export function techHTMLCreator(technologies) {
     return technologies
         .map((tech) => {
             return `<i class="fa-brands fa-${tech}"></i>`
@@ -23,7 +23,7 @@ function techHTMLCreator(technologies) {
         .join('')
 }
 
-function techDetailHTMLCreator(technologies) {
+export function techDetailHTMLCreator(technologies) {
     return technologies
         .map((tech) => {
             return `<div class="tech-icon-group"><i class="fa-brands fa-${tech}"></i><p>${getTechName(
@@ -33,7 +33,7 @@ function techDetailHTMLCreator(technologies) {
         .join('')
 }
 
-function getDuration(startDate, endDate) {
+export function getDuration(startDate, endDate) {
     const startDateMs = new Date(startDate)
     const endDateMs = new Date(endDate)
     const diff = endDateMs - startDateMs
@@ -51,7 +51,7 @@ function getDuration(startDate, endDate) {
     }
 }
 
-function formatDate(date) {
+export function formatDate(date) {
     const dateInstance = new Date(date)
     const monthStr = [
         'Jan',
@@ -75,7 +75,7 @@ function formatDate(date) {
     return `${day} ${month} ${year}`
 }
 
-function getImageURL(image) {
+export function getImageURL(image) {
     const labelWarning = document.querySelector('.input-image-warning')
 
     if (!image) {
@@ -87,7 +87,7 @@ function getImageURL(image) {
     return URL.createObjectURL(image)
 }
 
-function getTechs(checkboxes) {
+export function getTechs(checkboxes) {
     const techs = []
     const labelWarning = document.querySelector('.input-technologies-warning')
 
@@ -106,7 +106,7 @@ function getTechs(checkboxes) {
     return techs
 }
 
-function getTechName(tech) {
+export function getTechName(tech) {
     switch (tech) {
         case 'node-js':
             return 'Node JS'
@@ -119,7 +119,7 @@ function getTechName(tech) {
     }
 }
 
-function formValidation(inputs) {
+export function formValidation(inputs) {
     const dataKey = []
     const validData = []
 
@@ -151,22 +151,10 @@ function formValidation(inputs) {
     }
 }
 
-function inputValidation(input) {
+export function inputValidation(input) {
     if (input === '') {
         return null
     }
 
     return input
-}
-
-module.exports = {
-    getDuration: getDuration,
-    formatDate: formatDate,
-    getImageURL: getImageURL,
-    getTechs: getTechs,
-    getTechName: getTechName,
-    formValidation: formValidation,
-    inputValidation: inputValidation,
-    prepareProject,
-    prepareProject,
 }

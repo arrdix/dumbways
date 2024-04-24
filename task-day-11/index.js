@@ -1,9 +1,8 @@
 const express = require('express')
 const path = require('path')
 const initialProjects = require('./public/scripts/data/data.js')
-const { prepareProject } = require('./public/scripts/helpers/helper.js')
 
-let projects = initialProjects.map((project) => prepareProject(project))
+let projects = initialProjects
 const app = express()
 const port = 8989
 
