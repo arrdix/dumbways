@@ -70,7 +70,33 @@
             </div>
         </nav>
 
-        <div class='wrapper project-detail'></div>
+        <div class='wrapper project-detail'>
+            <h1>{{name}}</h1>
+            <div class='detail-header'>
+                <img src='{{this.image}}' class='detail-image' alt='' />
+                <div class='detail-info'>
+                    <h2>Duration</h2>
+                    <div class='detail-date-group'>
+                        <i class='fa-solid fa-calendar'></i>
+                        <p>{{this.startDate}} - {{this.endDate}}</p>
+                    </div>
+                    <div class='detail-duration-group'>
+                        <i class='fa-solid fa-clock'></i>
+                        <p>{{this.duration}}</p>
+                    </div>
+                    <h2>Technologies</h2>
+                    <div class='detail-tech-group'>
+                        {{{this.techDetailHTML}}}
+                    </div>
+                </div>
+            </div>
+            <div class='detail-body'>
+                <h2>Description</h2>
+                <div class='detail-desc'>
+                    {{this.description}}
+                </div>
+            </div>
+        </div>
 
         <script
             src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'
@@ -81,6 +107,5 @@
             src='https://kit.fontawesome.com/c64e7a230f.js'
             crossorigin='anonymous'
         ></script>
-        <script src='/scripts/views/detail.js' type='module'></script>
     </body>
 </html>

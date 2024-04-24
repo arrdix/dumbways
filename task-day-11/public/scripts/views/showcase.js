@@ -1,17 +1,29 @@
-const { getDuration } = require('../helpers/helper.js')
+const { getDuration, formatDate, getTechName } = require('../helpers/helper.js')
 
 function prepareProject(project) {
     const duration = getDuration(project.start, project.end)
+    const startDate = formatDate(project.start)
+    const endDate = formatDate(project.end)
     const techHTML = project.technologies
         .map((tech) => {
             return `<i class="fa-brands fa-${tech}"></i>`
         })
         .join('')
+    const techDetailHTML = project.technologies
+        .map((tech) => {
+            return `<div class="tech-icon-group"><i class="fa-brands fa-${tech}"></i><p>${getTechName(
+                tech
+            )}</p></div>`
+        })
+        .join('')
 
     return {
         ...project,
+        startDate: startDate,
+        endDate: endDate,
         duration: duration,
-        technologies: techHTML,
+        techHTML: techHTML,
+        techDetailHTML: techDetailHTML,
     }
 }
 
