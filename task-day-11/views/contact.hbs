@@ -71,12 +71,14 @@
         >
             <h1 class='title fw-bold'>GET IN TOUCH</h1>
             <form
-                action=''
+                method='POST'
+                action='/contact'
                 class='mt-3 w-100 d-flex flex-column align-items-center form-contact'
             >
                 <div class='form-item w-50'>
                     <label for='input-name' class='form-label'>Name</label>
                     <input
+                        name='name'
                         type='text'
                         class='form-control mb-1'
                         id='input-name'
@@ -89,6 +91,7 @@
                 <div class='form-item w-50'>
                     <label for='input-email' class='form-label'>Email</label>
                     <input
+                        name='email'
                         type='email'
                         class='form-control mb-1'
                         id='input-email'
@@ -101,6 +104,7 @@
                 <div class='form-item w-50'>
                     <label for='input-phone' class='form-label'>Phone Number</label>
                     <input
+                        name='phone'
                         type='tel'
                         class='form-control mb-1'
                         id='input-phone'
@@ -114,7 +118,11 @@
                     <label for='input-subject' class='form-label'>
                         Subject
                     </label>
-                    <select class='form-select mb-1' id='input-subject'>
+                    <select
+                        class='form-select mb-1'
+                        id='input-subject'
+                        name='subject'
+                    >
                         <option selected></option>
                         <option value='Collaboration'>Collaboration</option>
                         <option value='Greeting'>Greeting</option>
@@ -130,6 +138,7 @@
                         Your Message
                     </label>
                     <textarea
+                        name='message'
                         class='form-control mb-1'
                         id='input-message'
                         rows='3'
@@ -154,7 +163,5 @@
             src='https://kit.fontawesome.com/c64e7a230f.js'
             crossorigin='anonymous'
         ></script>
-        <script src='/scripts/views/contact.js' type='module'></script>
-        >
     </body>
 </html>

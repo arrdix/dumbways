@@ -75,6 +75,18 @@ app.get('/contact', (req, res) => {
     res.render('contact')
 })
 
+app.post('/contact', (req, res) => {
+    const { name, email, phone, subject, message } = req.body
+
+    console.log(`Name: ${name}`)
+    console.log(`Email: ${email}`)
+    console.log(`Phone: ${phone}`)
+    console.log(`Subject: ${subject}`)
+    console.log(`Messsage: ${message}`)
+
+    res.redirect('/contact')
+})
+
 // indicators
 app.listen(port, () => {
     console.log(`App is lestening on port: ${port}`)
