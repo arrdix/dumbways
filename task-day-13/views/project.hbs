@@ -1,0 +1,275 @@
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <link
+            href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'
+            rel='stylesheet'
+            integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH'
+            crossorigin='anonymous'
+        />
+        <link rel='stylesheet' href='/assets/styles/custom.css' />
+        <title>Add Project | Personal Web</title>
+    </head>
+    <body>
+        <nav
+            class='navbar navbar-expand-lg bg-body-tertiary shadow position-fixed top-0 z-1 w-100'
+        >
+            <div class='container-fluid'>
+                <a class='navbar-brand me-5' href='/index'>
+                    <img
+                        src='/assets/images/dumbways-logo.png'
+                        width='50'
+                        height='35'
+                        class='d-inline-block align-text-top'
+                    />
+                </a>
+                <button
+                    class='navbar-toggler'
+                    type='button'
+                    data-bs-toggle='collapse'
+                    data-bs-target='#navbarSupportedContent'
+                    aria-controls='navbarSupportedContent'
+                    aria-expanded='false'
+                    aria-label='Toggle navigation'
+                >
+                    <span class='navbar-toggler-icon'></span>
+                </button>
+                <div
+                    class='collapse navbar-collapse'
+                    id='navbarSupportedContent'
+                >
+                    <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
+                        <li class='nav-item'>
+                            <a
+                                class='nav-link fw-semibold'
+                                aria-current='page'
+                                href='/index'
+                            >Home</a>
+                        </li>
+                        <li class='nav-item'>
+                            <a class='nav-link fw-semibold active' href='#'>Add
+                                Project</a>
+                        </li>
+                        <li class='nav-item'>
+                            <a
+                                class='nav-link fw-semibold'
+                                href='/testimonials'
+                            >Testimonials</a>
+                        </li>
+                    </ul>
+                    <form class='d-flex mb-0' role='search'>
+                        <a href='/contact' class='btn btn-dark'>
+                            Contact Me
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div
+            class='container w-75 d-flex flex-column align-items-center'
+            style='margin-block: 7rem'
+        >
+            <h1 class='title fw-bold'>ADD NEW PROJECT</h1>
+            <form
+                class='mt-3 w-100 d-flex flex-column align-items-center form-new-project'
+            >
+                <div class='form-item w-50'>
+                    <label for='input-name-project' class='form-label'>
+                        Project Name
+                    </label>
+                    <input
+                        name='projectName'
+                        type='text'
+                        class='form-control mb-1'
+                        id='input-name-project'
+                    />
+                    <p
+                        class='input-name-project-warning invisible mb-0 text-danger'
+                    >
+                        Please insert project name.
+                    </p>
+                </div>
+
+                <div class='form-item row g2 gap-3 w-50'>
+                    <div class='col p-0'>
+                        <div class='w-100'>
+                            <label for='input-start-date' class='form-label'>
+                                Start Date
+                            </label>
+                            <input
+                                name='startDate'
+                                type='date'
+                                class='form-control mb-1'
+                                id='input-start-date'
+                            />
+                            <p
+                                class='input-start-date-warning invisible mb-0 text-danger'
+                            >
+                                Please insert date.
+                            </p>
+                        </div>
+                    </div>
+                    <div class='col p-0'>
+                        <div class='w-100'>
+                            <label for='input-end-date' class='form-label'>
+                                End Date
+                            </label>
+                            <input
+                                name='endDate'
+                                type='date'
+                                class='form-control mb-1'
+                                id='input-end-date'
+                            />
+                            <p
+                                class='input-end-date-warning invisible mb-0 text-danger'
+                            >
+                                Please insert date.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='form-item w-50'>
+                    <label for='input-summary' class='form-label'>
+                        Summary
+                    </label>
+                    <input
+                        name='summary'
+                        type='text'
+                        class='form-control mb-1'
+                        id='input-summary'
+                    />
+                    <p class='input-summary-warning invisible mb-0 text-danger'>
+                        Please insert summary.
+                    </p>
+                </div>
+
+                <div class='form-item w-50'>
+                    <label for='input-description' class='form-label'>
+                        Description
+                    </label>
+                    <textarea
+                        name='description'
+                        class='form-control mb-1'
+                        id='input-description'
+                        rows='3'
+                    ></textarea>
+                    <p
+                        class='input-description-warning invisible mb-0 text-danger'
+                    >
+                        Please insert description.
+                    </p>
+                </div>
+
+                <div class='form-item row g2 w-50'>
+                    <label for='input-technologies' class='form-label p-0'>
+                        Technologies
+                    </label>
+                    <div class='col p-0'>
+                        <div class='form-check d-flex align-items-center gap-3'>
+                            <input
+                                name='nodejs'
+                                class='form-check-input checkbox'
+                                type='checkbox'
+                                value='node-js'
+                                id='nodejs'
+                                style='width: 15px'
+                            />
+                            <label class='form-check-label' for='nodejs'>
+                                Node JS
+                            </label>
+                        </div>
+                        <div class='form-check d-flex align-items-center gap-3'>
+                            <input
+                                name='reactjs'
+                                class='form-check-input checkbox'
+                                type='checkbox'
+                                value='react'
+                                id='reactjs'
+                                style='width: 15px'
+                            />
+                            <label class='form-check-label' for='reactjs'>
+                                React JS
+                            </label>
+                        </div>
+                    </div>
+                    <div class='col p-0'>
+                        <div class='form-check d-flex align-items-center gap-3'>
+                            <input
+                                name='vuejs'
+                                class='form-check-input checkbox'
+                                type='checkbox'
+                                value='vuejs'
+                                id='vuejs'
+                                style='width: 15px'
+                            />
+                            <label class='form-check-label' for='vuejs'>
+                                Vue JS
+                            </label>
+                        </div>
+                        <div class='form-check d-flex align-items-center gap-3'>
+                            <input
+                                name='js'
+                                class='form-check-input checkbox'
+                                type='checkbox'
+                                value='js'
+                                id='javascript'
+                                style='width: 15px'
+                            />
+                            <label class='form-check-label' for='javascript'>
+                                JavaScript
+                            </label>
+                        </div>
+                    </div>
+                    <p
+                        class='input-technologies-warning invisible p-0 mb-0 text-danger'
+                    >
+                        Please pick at least 1 tech.
+                    </p>
+                </div>
+
+                <div class='form-item w-50'>
+                    <label for='input-image' class='form-label'>
+                        Upload image
+                    </label>
+                    <input
+                        name='image'
+                        class='form-control mb-1'
+                        type='file'
+                        id='input-image'
+                    />
+                    <p class='input-image-warning invisible mb-0 text-danger'>
+                        Please insert an image.
+                    </p>
+                </div>
+
+                <div
+                    class='form-item w-50 d-flex justify-content-between align-items-end'
+                >
+                    <a
+                        href='/showcase'
+                        class='link-underline link-underline-opacity-0 text-info-emphasis'
+                    >
+                        <h5 class='subtitle fw-medium'>Showcase</h5>
+                    </a>
+                    <div class='form-item mb3 w-50 d-flex justify-content-end'>
+                        <button class='btn btn-dark px-5'>Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script
+            src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'
+            integrity='sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz'
+            crossorigin='anonymous'
+        ></script>
+        <script
+            src='https://kit.fontawesome.com/c64e7a230f.js'
+            crossorigin='anonymous'
+        ></script>
+        <script src='/scripts/views/project.js' type='module'></script>
+    </body>
+</html>
