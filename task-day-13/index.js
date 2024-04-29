@@ -1,6 +1,10 @@
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
+const { Sequelize, QueryTypes } = require('sequelize')
+const config = require('../config/config.json')
+const sequelize = new Sequelize(config.development)
+
 const initialProjects = require('./public/scripts/data/data.js')
 
 let projects = initialProjects
@@ -28,14 +32,13 @@ app.get('/project', (req, res) => {
     res.render('project')
 })
 
-app.post('/project', (req, res) => {
-    const project = req.body
+app.post('/project', async (req, res) => {
+    const { name, start, end, summary, description, technologies, image } =
+        req.body
+    const strTechnologies = technologies.join(',')
 
-    projects.push({
-        ...project,
-        id: projects.length + 1,
-        image: '/assets/images/jennie.jpg',
-    })
+    const query = `INSERT INTO projects (name, start_date, end_date, summary, description, technologies, image) VALUES ('${name}', '${start}', '${end}', '${summary}', '${description}', '{${strTechnologies}}', '/assets/images/jennie.jpg')`
+    await sequelize.query(query, { type: QueryTypes.INSERT })
 
     res.send({ status: 'Ok!' })
 })
