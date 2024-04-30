@@ -4,9 +4,8 @@ const bodyParser = require('body-parser')
 const { Sequelize, QueryTypes } = require('sequelize')
 const config = require('../config/config.json')
 const sequelize = new Sequelize(config.development)
-const initialProjects = require('./src/data/data.js')
+const utils = require('./src/scripts/utils/utils.js')
 
-let projects = initialProjects
 const app = express()
 const port = 8989
 
@@ -18,11 +17,25 @@ app.use(express.static(path.join(__dirname, './src')))
 app.use(bodyParser.json())
 
 // routes
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
+    const query = `SELECT * FROM projects`
+    const responses = await sequelize.query(query, { type: QueryTypes.SELECT })
+
+    const projects = responses.map((response) => {
+        return utils.prepareProject(response)
+    })
+
     res.render('index', { projects })
 })
 
-app.get('/index', (req, res) => {
+app.get('/index', async (req, res) => {
+    const query = `SELECT * FROM projects`
+    const responses = await sequelize.query(query, { type: QueryTypes.SELECT })
+
+    const projects = responses.map((response) => {
+        return utils.prepareProject(response)
+    })
+
     res.render('index', { projects })
 })
 
@@ -35,7 +48,7 @@ app.post('/project', async (req, res) => {
         req.body
     const strTechnologies = technologies.join(',')
 
-    const query = `INSERT INTO projects (name, start_date, end_date, summary, description, technologies, image) VALUES ('${name}', '${start}', '${end}', '${summary}', '${description}', '{${strTechnologies}}', '/assets/images/jennie.jpg')`
+    const query = `INSERT INTO projects (name, start, end, summary, description, technologies, image) VALUES ('${name}', '${start}', '${end}', '${summary}', '${description}', '{${strTechnologies}}', '/assets/images/jennie.jpg')`
     await sequelize.query(query, { type: QueryTypes.INSERT })
 
     res.send({ status: 'Ok!' })

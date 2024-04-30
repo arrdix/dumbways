@@ -1,9 +1,4 @@
-import {
-    formValidation,
-    getImageURL,
-    getTechs,
-    prepareProject,
-} from '../helpers/helper.js'
+import helpers from '../helpers/helpers.js'
 
 document
     .querySelector('.form-new-project')
@@ -22,7 +17,7 @@ document
                 body: JSON.stringify(project),
             })
 
-            window.location.assign('/showcase')
+            window.location.assign('/index')
         }
     })
 
@@ -43,15 +38,15 @@ function formHandler() {
         inputDescription,
     ]
 
-    const validatedInputs = formValidation(inputs)
-    const techs = getTechs(inputCheckboxes)
-    const image = getImageURL(inputImage)
+    const validatedInputs = helpers.formValidation(inputs)
+    const techs = helpers.getTechs(inputCheckboxes)
+    const image = helpers.getImageURL(inputImage)
 
     if (validatedInputs && image && techs.length) {
-        return prepareProject({
+        return {
             ...validatedInputs,
             technologies: techs,
             image: image,
-        })
+        }
     }
 }
