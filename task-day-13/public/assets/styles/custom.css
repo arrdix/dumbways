@@ -20,6 +20,12 @@ input[type='checkbox'] {
     padding-block: 1rem;
 }
 
+@media screen and (max-width: 1156px) {
+    .profile-card {
+        margin-inline: 4rem;
+    }
+}
+
 @media screen and (max-width: 992px) {
     .form-item {
         width: 75% !important;

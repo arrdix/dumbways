@@ -1,6 +1,6 @@
 .wrapper.projects {
     width: 100%;
-    margin-block: 7rem;
+    margin-block: 4rem;
     padding-inline: 5rem;
     display: flex;
     flex-direction: column;
@@ -87,6 +87,7 @@
     justify-content: center;
     font-weight: 700;
     color: maroon;
+    background-color: whitesmoke;
     transition: opacity 0.3s ease-in-out;
 }
 .delete-btn:hover,

@@ -21,11 +21,11 @@ app.use(bodyParser.json())
 
 // routes
 app.get('/', (req, res) => {
-    res.render('index')
+    res.render('index', { projects })
 })
 
 app.get('/index', (req, res) => {
-    res.render('index')
+    res.render('index', { projects })
 })
 
 app.get('/project', (req, res) => {
@@ -49,10 +49,6 @@ app.delete('/project/:id', (req, res) => {
     projects = projects.filter((project) => project.id != id)
 
     res.send({ status: 'Ok!' })
-})
-
-app.get('/showcase', (req, res) => {
-    res.render('showcase', { projects })
 })
 
 app.get('/edit-project/:id', (req, res) => {

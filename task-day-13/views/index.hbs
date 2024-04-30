@@ -9,6 +9,7 @@
             crossorigin='anonymous'
         />
         <link rel='stylesheet' href='/assets/styles/custom.css' />
+        <link rel='stylesheet' href='/assets/styles/showcase.css' />
         <title>Home | Personal Web</title>
     </head>
     <body>
@@ -68,10 +69,13 @@
         </nav>
 
         <div
-            class='container w-75 d-flex align-items-center'
-            style='margin-block: 7rem; max-width: 1050px; height: 75vh'
+            class='container w-100 d-flex align-items-center p-0'
+            style='margin-top: 8rem; max-width: 1115px;'
         >
-            <div class='card shadow p-5 d-flex gap-5 flex-column flex-lg-row'>
+            <div
+                class='profile-card card shadow p-5 d-flex gap-5 flex-column flex-lg-row'
+                style='border-radius: 15px;'
+            >
                 <div
                     class='card-item flex-grow-1 d-flex flex-column align-items-center align-items-lg-start'
                 >
@@ -151,6 +155,44 @@
             </div>
         </div>
 
+        <div class='wrapper projects'>
+            <div class='showcase'>
+                {{#each projects}}
+                    <div class='project-card'>
+                        <a
+                            href='/detail/{{this.id}}'
+                            class='project-detail-link'
+                        >
+                            <img
+                                src='{{this.image}}'
+                                class='project-image'
+                                alt='Project image'
+                            />
+                            <h2 class='project-title'>{{this.name}}</h2>
+                        </a>
+                        <p class='project-duration'>{{this.duration}}</p>
+                        <p class='project-summary'>
+                            {{this.summary}}
+                        </p>
+                        <div class='tech-group'>
+                            {{{this.techHTML}}}
+                        </div>
+                        <div class='button-group'>
+                            <a
+                                href='/edit-project/{{this.id}}'
+                                class='edit-btn'
+                            >
+                                Edit
+                            </a>
+                            <button class='delete-btn' data-id='{{this.id}}'>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+
         <script
             src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'
             integrity='sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz'
@@ -160,5 +202,6 @@
             src='https://kit.fontawesome.com/c64e7a230f.js'
             crossorigin='anonymous'
         ></script>
+        <script src='/scripts/views/showcase.js' type='module'></script>
     </body>
 </html>
