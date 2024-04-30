@@ -4,19 +4,17 @@ const bodyParser = require('body-parser')
 const { Sequelize, QueryTypes } = require('sequelize')
 const config = require('../config/config.json')
 const sequelize = new Sequelize(config.development)
-
-const initialProjects = require('./public/scripts/data/data.js')
+const initialProjects = require('./src/data/data.js')
 
 let projects = initialProjects
 const app = express()
 const port = 8989
 
 app.set('view engine', 'hbs')
-app.set('views', path.join(__dirname, './views'))
-
-app.use(express.static(path.join(__dirname, './public')))
+app.set('views', path.join(__dirname, './src/views'))
 
 // middleware
+app.use(express.static(path.join(__dirname, './src')))
 app.use(bodyParser.json())
 
 // routes
