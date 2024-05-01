@@ -15,12 +15,14 @@ async function getTestimonials() {
 
 function initTestimonials(testimonials) {
     const filterButtons = document.querySelectorAll('.filter-btn')
-
     filterButtons.forEach((filterButton) => {
         filterHandler(filterButton, testimonials)
     })
 
-    renderTestimonials(testimonials)
+    const testimonialCard = testimonials.map((testimonial) =>
+        cardCreator(testimonial)
+    )
+    render(testimonialCard.join(''))
 }
 
 function filterHandler(btn, testimonials) {
@@ -28,26 +30,26 @@ function filterHandler(btn, testimonials) {
         // parse to int because attribute is string
         const requestedRating = parseInt(btn.getAttribute('rating'))
         const filteredTestimonial = testimonials.filter(
-            (testimonials) => testimonials.rating == requestedRating
+            (testimonials) => testimonials.rating === requestedRating
         )
 
         if (!requestedRating) {
-            return renderTestimonials(testimonials)
+            const testimonialCard = testimonials.map((testimonial) =>
+                cardCreator(testimonial)
+            )
+            return render(testimonialCard.join(''))
         }
 
         if (!filteredTestimonial.length) {
-            return renderEmptyMessage()
+            const emptyMessage = emptyMessageCreator()
+            return render(emptyMessage)
         }
 
-        return renderTestimonials(filteredTestimonial)
+        const testimonialCard = filteredTestimonial.map((testimonial) =>
+            cardCreator(testimonial)
+        )
+        return render(testimonialCard.join(''))
     })
-}
-
-function renderEmptyMessage() {
-    const emptyMessage = emptyMessageCreator()
-
-    const testimonialsWrapper = document.querySelector('.testimonials')
-    testimonialsWrapper.innerHTML = emptyMessage
 }
 
 function emptyMessageCreator() {
@@ -59,23 +61,12 @@ function emptyMessageCreator() {
         `
 }
 
-function renderTestimonials(testimonials) {
-    const testimonialCards = testimonials.map((testimonial) => {
-        const testimonialCard = cardCreator(testimonial)
-
-        return testimonialCard
-    })
-
-    const testimonialsWrapper = document.querySelector('.testimonials')
-    testimonialsWrapper.innerHTML = testimonialCards.join('')
-}
-
 function cardCreator(testimonial) {
     const { name, rating, testimony, image } = testimonial
 
     return `
         <div class="card">
-            <img src="/assets/images/jennie.jpg" class="testi-image" alt="testimony image">
+            <img src="${image}" class="testi-image" alt="testimony image">
             <p class="testi-text">${testimony}</p>
             <h3 class="testi-name">${name}</h3>
             <div class="stars">
@@ -93,4 +84,9 @@ function starsCreator(rating) {
     }
 
     return stars.join('')
+}
+
+function render(html) {
+    const testimonialsWrapper = document.querySelector('.testimonials')
+    testimonialsWrapper.innerHTML = html
 }
