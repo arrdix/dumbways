@@ -37,15 +37,15 @@ const controllers = {
         res.render('detail', requestedProject)
     },
 
-    async addProjectView(req, res) {
+    addProjectView(req, res) {
         res.render('project')
     },
 
-    async testimonialView(req, res) {
+    testimonialView(req, res) {
         res.render('testimonials')
     },
 
-    async contactView(req, res) {
+    contactView(req, res) {
         res.render('contact')
     },
 
@@ -64,7 +64,8 @@ const controllers = {
     async deleteProject(req, res) {
         const { id } = req.params
 
-        projects = projects.filter((project) => project.id != id)
+        const query = `DELETE FROM projects WHERE id = ${id}`
+        await sequelize.query(query, { type: QueryTypes.DELETE })
 
         res.send({ status: 'Ok!' })
     },
