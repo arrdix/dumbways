@@ -1,0 +1,34 @@
+body {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+}
+input,
+select,
+textarea {
+    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.1);
+}
+input[type='checkbox'] {
+    width: auto;
+    margin: 0;
+    box-shadow: none;
+}
+.navbar {
+    padding-inline: 2rem;
+    padding-block: 1rem;
+}
+
+@media screen and (max-width: 1156px) {
+    .profile-card {
+        margin-inline: 4rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .form-item {
+        width: 75% !important;
+        min-width: 300px !important;
+    }
+}
