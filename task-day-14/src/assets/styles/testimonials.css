@@ -31,9 +31,12 @@
     transition: all 0.3s ease-in-out;
 }
 .testimonials {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem;
+    max-width: 1200px;
+    padding-inline: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 .card {
     width: 350px;
@@ -79,23 +82,14 @@
 .empty-message h2 {
     margin-top: 5rem;
 }
-
 /* responsive styling for small screen starts here */
-@media screen and (max-width: 1156px) {
-    .testimonials {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-@media screen and (max-width: 776px) {
+@media screen and (max-width: 796px) {
     .wrapper {
-        margin-block: 2rem;
+        margin-block: 7rem;
     }
     .filter {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-    }
-    .testimonials {
-        grid-template-columns: repeat(1, 1fr);
     }
 }

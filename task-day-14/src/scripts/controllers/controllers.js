@@ -1,6 +1,7 @@
 const config = require('../../../../config/config.json')
 const { Sequelize, QueryTypes } = require('sequelize')
 const utils = require('../utils/utils.js')
+const projectsModel = require('../../../../models').projects
 
 const sequelize = new Sequelize(config.development)
 
@@ -36,7 +37,12 @@ const controllers = {
 
     async detailView(req, res) {
         const { id } = req.params
-        const requestedProject = projects.find((project) => project.id == id)
+
+        const query = `SELECT * FROM projects WHERE id = ${id}`
+        const rawRequestedProject = await sequelize.query(query, {
+            type: QueryTypes.SELECT,
+        })
+        const requestedProject = utils.prepareProject(rawRequestedProject[0])
 
         res.render('detail', requestedProject)
     },

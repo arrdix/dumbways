@@ -8,7 +8,9 @@
     align-items: center;
 }
 .wrapper.project-detail h1 {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 .detail-header {
     margin-bottom: 1rem;
@@ -71,6 +73,7 @@
 }
 .detail-body h2 {
     margin-bottom: 1rem;
+    font-weight: 700;
 }
 .detail-desc {
     text-align: justify;
