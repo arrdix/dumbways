@@ -1,35 +1,32 @@
 const helpers = {
-    getImageURL(image) {
-        const labelWarning = document.querySelector('.input-image-warning')
+    formHandler() {
+        const inputName = document.getElementById('input-name-project')
+        const inputStartDate = document.getElementById('input-start-date')
+        const inputEndDate = document.getElementById('input-end-date')
+        const inputSummary = document.getElementById('input-summary')
+        const inputDescription = document.getElementById('input-description')
+        const inputImage = document.getElementById('input-image').files[0]
+        const inputCheckboxes = document.querySelectorAll('.checkbox')
 
-        if (!image) {
-            labelWarning.classList.remove('invisible')
-            return
-        }
+        const inputs = [
+            inputName,
+            inputStartDate,
+            inputEndDate,
+            inputSummary,
+            inputDescription,
+        ]
 
-        labelWarning.classList.add('invisible')
-        return URL.createObjectURL(image)
-    },
+        const validatedInputs = this.formValidation(inputs)
+        const techs = this.getTechs(inputCheckboxes)
+        const image = this.getImageURL(inputImage)
 
-    getTechs(checkboxes) {
-        const techs = []
-        const labelWarning = document.querySelector(
-            '.input-technologies-warning'
-        )
-
-        checkboxes.forEach((checkbox) => {
-            if (checkbox.checked) {
-                techs.push(checkbox.value)
+        if (validatedInputs && image && techs.length) {
+            return {
+                ...validatedInputs,
+                technologies: techs,
+                image: image,
             }
-        })
-
-        if (!techs.length) {
-            labelWarning.classList.remove('invisible')
-            return
         }
-
-        labelWarning.classList.add('invisible')
-        return techs
     },
 
     formValidation(inputs) {
@@ -70,6 +67,39 @@ const helpers = {
         }
 
         return input
+    },
+
+    getTechs(checkboxes) {
+        const techs = []
+        const labelWarning = document.querySelector(
+            '.input-technologies-warning'
+        )
+
+        checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+                techs.push(checkbox.value)
+            }
+        })
+
+        if (!techs.length) {
+            labelWarning.classList.remove('invisible')
+            return
+        }
+
+        labelWarning.classList.add('invisible')
+        return techs
+    },
+
+    getImageURL(image) {
+        const labelWarning = document.querySelector('.input-image-warning')
+
+        if (!image) {
+            labelWarning.classList.remove('invisible')
+            return
+        }
+
+        labelWarning.classList.add('invisible')
+        return URL.createObjectURL(image)
     },
 }
 

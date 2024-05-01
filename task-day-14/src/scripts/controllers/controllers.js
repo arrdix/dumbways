@@ -21,13 +21,17 @@ const controllers = {
 
     async editProjectView(req, res) {
         const { id } = req.params
-        const requestedProject = projects.find((project) => project.id == id)
 
-        requestedProject.technologies.forEach((tech) => {
-            requestedProject[tech] = 'checked'
+        const query = `SELECT * FROM projects WHERE id = ${id}`
+        const requestedProject = await sequelize.query(query, {
+            type: QueryTypes.SELECT,
         })
 
-        res.render('edit-project', requestedProject)
+        requestedProject[0].technologies.forEach((tech) => {
+            requestedProject[0][tech] = 'checked'
+        })
+
+        res.render('edit-project', requestedProject[0])
     },
 
     async detailView(req, res) {
@@ -72,19 +76,12 @@ const controllers = {
 
     async editProject(req, res) {
         const { id } = req.params
-        const editedProject = req.body
+        const { name, start, end, summary, description, technologies, image } =
+            req.body
+        const strTechnologies = technologies.join(',')
 
-        projects = projects.map((project) => {
-            if (project.id == id) {
-                return {
-                    id: parseInt(id),
-                    ...editedProject,
-                    image: '/assets/images/jennie.jpg',
-                }
-            }
-
-            return project
-        })
+        const query = `UPDATE projects SET name = '${name}', start = '${start}', "end" = '${end}', summary = '${summary}', description = '${description}', technologies = '{${strTechnologies}}', image = '/assets/images/jennie.jpg' WHERE id = ${id}`
+        await sequelize.query(query, { type: QueryTypes.UPDATE })
 
         res.send({ status: 'Ok!' })
     },
