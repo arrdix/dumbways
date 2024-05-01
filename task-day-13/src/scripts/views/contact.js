@@ -1,4 +1,4 @@
-import { formValidation } from '../helpers/helper.js'
+import helpers from '../helpers/helpers.js'
 
 const form = document.querySelector('.form-contact')
 
@@ -21,7 +21,7 @@ function formHandler() {
         inputSubject,
         inputMessage,
     ]
-    const data = formValidation(inputs)
+    const data = helpers.formValidation(inputs)
 
     if (data) {
         const mail = 'mail.ardix@gmail.com'
