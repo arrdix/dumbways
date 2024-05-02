@@ -29,8 +29,9 @@ const controllers = {
             },
         })
         const requestedProject = response.dataValues
+        const technologies = response.dataValues.technologies
 
-        requestedProject.technologies.forEach((tech) => {
+        technologies.forEach((tech) => {
             requestedProject[tech] = 'checked'
         })
 
@@ -126,9 +127,32 @@ const controllers = {
         res.send({ status: 'Ok!' })
     },
 
-    login(req, res) {
+    async login(req, res) {
         const { username, password } = req.body
-        console.log(username, password)
+
+        const user = await usersModel.findOne({
+            where: {
+                username: username,
+            },
+        })
+
+        // use 'default' as alternative value if user isn't exist to avoid redundant condition
+        const isPasswordMatch = await bcrypt.compare(
+            password,
+            user?.password || 'default'
+        )
+
+        if (!user || !isPasswordMatch) {
+            res.json({ message: 'Username/password was incorrect!' })
+        }
+
+        // storing session data
+        req.session.isLoggedIn = true
+        req.session.user = {
+            username: user.username,
+        }
+
+        res.json({ message: 'Logged in!' })
     },
 
     async signup(req, res) {
@@ -143,7 +167,8 @@ const controllers = {
 
             res.json({ message: 'Account created!' })
         } catch (err) {
-            console.log(err.errors[0].message)
+            const errorMessage = err.errors[0].message
+            res.json({ message: `${errorMessage}` })
         }
     },
 }

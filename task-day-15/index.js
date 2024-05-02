@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const controllers = require('./src/scripts/controllers/controllers')
+const session = require('express-session')
 
 const app = express()
 const port = 8989
@@ -12,6 +13,14 @@ app.set('views', path.join(__dirname, './src/views'))
 // middlewares
 app.use(express.static(path.join(__dirname, './src')))
 app.use(bodyParser.json())
+app.use(
+    session({
+        secret: 'personal_web_secret_recipe',
+        resave: false,
+        saveUninitialized: true,
+        cookie: { secure: false, maxAge: 60000 },
+    })
+)
 
 // views
 app.get('/', controllers.homeView)
