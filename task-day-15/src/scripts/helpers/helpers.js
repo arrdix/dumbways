@@ -1,5 +1,5 @@
 const helpers = {
-    formHandler() {
+    projectFormHandler() {
         const inputName = document.getElementById('input-name-project')
         const inputStartDate = document.getElementById('input-start-date')
         const inputEndDate = document.getElementById('input-end-date')

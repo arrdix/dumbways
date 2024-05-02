@@ -6,7 +6,7 @@ document
         event.preventDefault()
 
         const baseUrl = window.location.origin
-        const project = helpers.formHandler()
+        const project = helpers.projectFormHandler()
 
         if (project) {
             await fetch(`${baseUrl}/project`, {

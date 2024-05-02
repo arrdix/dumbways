@@ -28,6 +28,7 @@ app.get('/signup', controllers.signupView)
 app.post('/project', controllers.createProject)
 app.delete('/project/:id', controllers.deleteProject)
 app.put('/edit-project/:id', controllers.editProject)
+app.post('/login', controllers.login)
 
 // server
 app.listen(port, () => {

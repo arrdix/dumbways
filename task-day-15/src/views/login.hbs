@@ -9,16 +9,16 @@
             crossorigin='anonymous'
         />
         <link rel='stylesheet' href='/assets/styles/custom.css' />
+        <link rel='stylesheet' href='/assets/styles/login.css' />
         <title>Login | Personal Web</title>
     </head>
     <body>
         <div
             class='container-fluid d-flex justify-content-center align-items-center'
-            style='height: 100vh'
+            style='height: 100%'
         >
             <div
-                class='card p-3 rounded-4 border-0 shadow-sm d-flex flex-row justify-content-center'
-                style='height: 75vh; width: 1000px'
+                class='auth-card card p-3 rounded-4 border-0 shadow-sm d-flex flex-row justify-content-center'
             >
                 <div class='card-item w-100'>
                     <img
@@ -36,7 +36,7 @@
                         action=''
                         class='mt-3 w-100 d-flex flex-column align-items-center form-login'
                     >
-                        <div class='form-item w-75'>
+                        <div class='form-item w-75 mb-2'>
                             <input
                                 type='text'
                                 class='form-control mb-1'
@@ -44,13 +44,13 @@
                                 placeholder='Username'
                             />
                             <p
-                                class='input-username-warning invisible mb-0 text-danger'
+                                class='input-warning input-username-warning invisible mb-2 text-danger'
                             >
                                 Please input an username.
                             </p>
                         </div>
 
-                        <div class='form-item w-75'>
+                        <div class='form-item w-75 mb-2'>
                             <input
                                 type='password'
                                 class='form-control mb-1'
@@ -58,7 +58,7 @@
                                 placeholder='Password'
                             />
                             <p
-                                class='input-password-warning invisible mb-0 text-danger'
+                                class='input-warning input-password-warning invisible mb-2 text-danger'
                             >
                                 Please input a password.
                             </p>
@@ -108,5 +108,6 @@
             src='https://kit.fontawesome.com/c64e7a230f.js'
             crossorigin='anonymous'
         ></script>
+        <script src='/scripts/views/login.js' type='module'></script>
     </body>
 </html>

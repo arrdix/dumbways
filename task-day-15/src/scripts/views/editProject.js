@@ -7,7 +7,7 @@ document
 
         const baseUrl = window.location.origin
         const id = window.location.pathname.split('/')[2]
-        const project = helpers.formHandler()
+        const project = helpers.projectFormHandler()
 
         if (project) {
             await fetch(`${baseUrl}/edit-project/${id}`, {

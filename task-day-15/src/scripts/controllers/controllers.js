@@ -148,6 +148,11 @@ const controllers = {
 
         res.send({ status: 'Ok!' })
     },
+
+    login(req, res) {
+        const { username, password } = req.body
+        console.log(username, password)
+    },
 }
 
 module.exports = controllers
