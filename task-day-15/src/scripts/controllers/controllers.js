@@ -2,17 +2,15 @@ const config = require('../../../../config/config.json')
 const { Sequelize, QueryTypes } = require('sequelize')
 const utils = require('../utils/utils.js')
 const projectsModel = require('../../../../models').projects
+const usersModel = require('../../../../models').users
+const bcrypt = require('bcrypt')
+const saltRounds = 10
 
 const sequelize = new Sequelize(config.development)
 
 const controllers = {
     // views
     async homeView(req, res) {
-        // const query = `SELECT * FROM projects`
-        // const responses = await sequelize.query(query, {
-        //     type: QueryTypes.SELECT,
-        // })
-
         const responses = await projectsModel.findAll()
 
         const projects = responses.map((response) => {
@@ -24,11 +22,6 @@ const controllers = {
 
     async editProjectView(req, res) {
         const { id } = req.params
-
-        // const query = `SELECT * FROM projects WHERE id = ${id}`
-        // const requestedProject = await sequelize.query(query, {
-        //     type: QueryTypes.SELECT,
-        // })
 
         const response = await projectsModel.findOne({
             where: {
@@ -46,11 +39,6 @@ const controllers = {
 
     async detailView(req, res) {
         const { id } = req.params
-
-        // const query = `SELECT * FROM projects WHERE id = ${id}`
-        // const rawRequestedProject = await sequelize.query(query, {
-        //     type: QueryTypes.SELECT,
-        // })
 
         const response = await projectsModel.findOne({
             where: {
@@ -87,10 +75,6 @@ const controllers = {
     async createProject(req, res) {
         const { name, start, end, summary, description, technologies, image } =
             req.body
-        // const strTechnologies = technologies.join(',')
-
-        // const query = `INSERT INTO projects (name, start, "end", summary, description, technologies, image) VALUES ('${name}', '${start}', '${end}', '${summary}', '${description}', '{${strTechnologies}}', '/assets/images/jennie.jpg')`
-        // await sequelize.query(query, { type: QueryTypes.INSERT })
 
         await projectsModel.create({
             name,
@@ -108,9 +92,6 @@ const controllers = {
     async deleteProject(req, res) {
         const { id } = req.params
 
-        // const query = `DELETE FROM projects WHERE id = ${id}`
-        // await sequelize.query(query, { type: QueryTypes.DELETE })
-
         await projectsModel.destroy({
             where: {
                 id: id,
@@ -124,10 +105,6 @@ const controllers = {
         const { id } = req.params
         const { name, start, end, summary, description, technologies, image } =
             req.body
-        // const strTechnologies = technologies.join(',')
-
-        // const query = `UPDATE projects SET name = '${name}', start = '${start}', "end" = '${end}', summary = '${summary}', description = '${description}', technologies = '{${strTechnologies}}', image = '/assets/images/jennie.jpg' WHERE id = ${id}`
-        // await sequelize.query(query, { type: QueryTypes.UPDATE })
 
         await projectsModel.update(
             {
@@ -154,9 +131,20 @@ const controllers = {
         console.log(username, password)
     },
 
-    signup(req, res) {
+    async signup(req, res) {
         const { username, email, password } = req.body
-        console.log(username, email, password)
+
+        try {
+            await usersModel.create({
+                username,
+                email,
+                password: await bcrypt.hash(password, saltRounds),
+            })
+
+            res.json({ message: 'Account created!' })
+        } catch (err) {
+            console.log(err.errors[0].message)
+        }
     },
 }
 
