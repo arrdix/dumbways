@@ -1,3 +1,7 @@
+.profile-card {
+    padding: 5rem;
+}
+
 @media screen and (max-width: 1156px) {
     .profile-card {
         margin-inline: 4rem;

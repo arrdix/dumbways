@@ -9,6 +9,7 @@
             crossorigin='anonymous'
         />
         <link rel='stylesheet' href='/assets/styles/custom.css' />
+        <link rel='stylesheet' href='/assets/styles/home.css' />
         <link rel='stylesheet' href='/assets/styles/showcase.css' />
         <title>Home | Personal Web</title>
     </head>
@@ -20,8 +21,8 @@
                 <a class='navbar-brand me-5 p-0' href='#'>
                     <img
                         src='/assets/images/icon.png'
-                        width='50'
-                        height='40'
+                        width='60'
+                        height='50'
                         class='d-inline-block align-text-top'
                     />
                 </a>
@@ -40,44 +41,107 @@
                     class='collapse navbar-collapse'
                     id='navbarSupportedContent'
                 >
-                    <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
+                    <ul class='navbar-nav me-auto mb-0'>
                         <li class='nav-item'>
                             <a
                                 class='nav-link fw-semibold active'
                                 aria-current='page'
                                 href='#'
-                            >Home</a>
+                            >
+                                Home
+                            </a>
                         </li>
                         <li class='nav-item'>
-                            <a class='nav-link fw-semibold' href='/project'>Add
-                                Project</a>
+                            <a class='nav-link fw-semibold' href='/project'>
+                                Add Project
+                            </a>
                         </li>
                         <li class='nav-item'>
                             <a
                                 class='nav-link fw-semibold'
                                 href='/testimonials'
-                            >Testimonials</a>
+                            >
+                                Testimonials
+                            </a>
                         </li>
                     </ul>
-                    <form class='d-flex mb-0' role='search'>
-                        <a href='/contact' class='btn btn-dark'>
-                            Contact Me
-                        </a>
-                    </form>
+
+                    <ul class='navbar-nav align-items-lg-center gap-lg-3'>
+                        <li class='nav-item'>
+                            <a class='nav-link fw-semibold' href='/login'>
+                                Log In
+                            </a>
+                        </li>
+                        <li class='nav-item mb-2 mb-lg-0'>
+                            <a class='nav-link fw-semibold' href='/signup'>
+                                Sign Up
+                            </a>
+                        </li>
+                        <li class='nav-item'>
+                            <form class='d-flex mb-0' role='search'>
+                                <a href='/contact' class='btn btn-dark'>
+                                    Contact Me
+                                </a>
+                            </form>
+                        </li>
+                        <li class='nav-item d-none d-lg-block'>
+                            <div class='btn-group'>
+                                <button
+                                    type='button'
+                                    class='dropdown-btn btn dropdown-toggle'
+                                    data-bs-toggle='dropdown'
+                                    aria-expanded='false'
+                                >
+                                    <img
+                                        src='https://api.dicebear.com/8.x/adventurer-neutral/svg?seed=Kiki'
+                                        class='rounded-circle'
+                                        width='50'
+                                        height='50'
+                                        alt='profile picture'
+                                    />
+                                </button>
+                                <ul class='dropdown-menu dropdown-menu-end'>
+                                    <li class='px-3'>
+                                        <p class='m-0'>
+                                            Ardi
+                                        </p>
+                                    </li>
+                                    <li class='px-3'>
+                                        <p class='m-0'>
+                                            ardi@gmail.com
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <hr class='dropdown-divider' />
+                                    </li>
+                                    <li>
+                                        <a class='dropdown-item' href='/logout'>
+                                            Log out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class='nav-item d-block d-lg-none'>
+                            <a class='nav-link fw-semibold' href='/logout'>
+                                Log Out
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
 
         <div
             class='container w-100 d-flex align-items-center p-0'
-            style='margin-top: 8rem; max-width: 1115px;'
+            style='margin-top: 11rem; max-width: 1115px;'
         >
             <div
-                class='profile-card card shadow p-5 d-flex gap-5 flex-column flex-lg-row'
+                class='profile-card card shadow d-flex gap-5 flex-column flex-lg-row'
                 style='border-radius: 15px;'
             >
                 <div
-                    class='card-item flex-grow-1 d-flex flex-column align-items-center align-items-lg-start'
+                    class='card-item flex-grow-1 d-flex flex-column align-items-center justify-content-lg-center align-items-lg-start'
                 >
                     <h1 class='title fw-bold'>Hi, Ardi here.</h1>
                     <p class='description text-center text-lg-start'>

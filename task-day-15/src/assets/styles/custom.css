@@ -16,6 +16,34 @@ body {
 .navbar {
     padding-inline: 2rem;
     padding-block: 1rem;
+    /* min-height: 100px; */
+}
+.dropdown-btn {
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    transition: all 0.3s ease-in-out;
+}
+.dropdown-btn:active,
+.dropdown-btn:focus,
+.dropdown-btn:hover {
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+}
+.dropdown-item:active {
+    background-color: black;
+}
+.navbar-toggler {
+    width: 60px;
+    height: 50px;
+    box-shadow: 0 0 0 0;
+    transition: all 0.3s ease-in-out;
+}
+.navbar-toggler:active,
+.navbar-toggler:focus,
+.navbar-toggler:hover {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
 }
 
 @media screen and (max-width: 992px) {
