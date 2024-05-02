@@ -1,0 +1,163 @@
+/* detail styling starts here */
+
+.wrapper.project-detail {
+    width: 75%;
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wrapper.project-detail h1 {
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.detail-header {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+.detail-image {
+    width: 60%;
+    object-fit: cover;
+}
+.detail-info {
+    width: 40%;
+}
+.detail-info h2 {
+    margin: 0;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.detail-info i {
+    font-size: 1.5rem;
+}
+.detail-date-group,
+.detail-duration-group {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+}
+.detail-date-group p,
+.detail-duration-group p {
+    margin: 0;
+}
+.detail-duration-group p {
+    margin-left: -3px;
+}
+.detail-duration-group {
+    margin-bottom: 2rem;
+}
+.detail-tech-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 0.5rem;
+}
+.tech-icon-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.tech-icon-group i {
+    font-size: 2rem;
+    font-weight: 500;
+}
+.tech-icon-group p {
+    margin: 0;
+}
+.detail-body {
+    margin-bottom: 3rem;
+}
+.detail-body h2 {
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+.detail-desc {
+    text-align: justify;
+}
+
+/* empty message styling starts here */
+
+.empty-message-group {
+    height: 75vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.empty-message-group h1,
+.empty-message-group p {
+    margin: 0;
+    margin-bottom: 0.25rem;
+}
+.empty-message-group p {
+    margin-bottom: 2rem;
+}
+.empty-message-group i {
+    font-size: 10rem;
+    margin-bottom: 2rem;
+}
+.empty-message-group a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: steelblue;
+}
+
+/* responsive styling for small screen starts here */
+
+@media screen and (max-width: 776px) {
+    .detail-header {
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+    }
+    .detail-image {
+        width: 100%;
+    }
+    .detail-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .detail-date-group i,
+    .detail-duration-group i {
+        display: none;
+    }
+    .detail-tech-group {
+        display: flex;
+        gap: 2rem;
+    }
+    .detail-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 776px) {
+    p {
+        font-size: 0.9rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    .detail-info h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    .wrapper.project-detail {
+        margin-top: 2rem;
+    }
+    .detail-date-group {
+        margin-bottom: 0.25rem;
+    }
+    .detail-duration-group {
+        margin-bottom: 1rem;
+    }
+}
