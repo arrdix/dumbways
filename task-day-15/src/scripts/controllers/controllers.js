@@ -143,7 +143,7 @@ const controllers = {
         )
 
         if (!user || !isPasswordMatch) {
-            res.json({ message: 'Username/password was incorrect!' })
+            return res.json({ message: 'Username/password was incorrect!' })
         }
 
         // storing session data
@@ -152,7 +152,7 @@ const controllers = {
             username: user.username,
         }
 
-        res.json({ message: 'Logged in!' })
+        return res.json({ message: 'Logged in!' })
     },
 
     async signup(req, res) {
@@ -165,10 +165,10 @@ const controllers = {
                 password: await bcrypt.hash(password, saltRounds),
             })
 
-            res.json({ message: 'Account created!' })
+            return res.json({ message: 'Account created!' })
         } catch (err) {
             const errorMessage = err.errors[0].message
-            res.json({ message: `${errorMessage}` })
+            return res.json({ message: `${errorMessage}` })
         }
     },
 }

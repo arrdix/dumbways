@@ -21,6 +21,14 @@ app.use(
         cookie: { secure: false, maxAge: 60000 },
     })
 )
+app.use((req, res, next) => {
+    // to prevent logged user to access login/signup page
+    if (req.url === '/login' || req.url === '/signup') {
+        if (req.session.isLoggedIn) return res.redirect('/index')
+    }
+
+    return next()
+})
 
 // views
 app.get('/', controllers.homeView)
