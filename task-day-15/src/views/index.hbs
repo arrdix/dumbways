@@ -51,11 +51,13 @@
                                 Home
                             </a>
                         </li>
+                        {{#if auth.isLoggedIn}}
                         <li class='nav-item'>
                             <a class='nav-link fw-semibold' href='/project'>
                                 Add Project
                             </a>
                         </li>
+                        {{/if}}
                         <li class='nav-item'>
                             <a
                                 class='nav-link fw-semibold'
@@ -67,6 +69,7 @@
                     </ul>
 
                     <ul class='navbar-nav align-items-lg-center gap-lg-3'>
+                        {{#unless auth.isLoggedIn}}
                         <li class='nav-item'>
                             <a class='nav-link fw-semibold' href='/login'>
                                 Log In
@@ -77,6 +80,7 @@
                                 Sign Up
                             </a>
                         </li>
+                        {{/unless}}
                         <li class='nav-item'>
                             <form class='d-flex mb-0' role='search'>
                                 <a href='/contact' class='btn btn-dark'>
@@ -84,31 +88,33 @@
                                 </a>
                             </form>
                         </li>
+                        {{#if auth.isLoggedIn}}
                         <li class='nav-item d-none d-lg-block'>
                             <div class='btn-group'>
                                 <button
                                     type='button'
-                                    class='dropdown-btn btn dropdown-toggle'
+                                    class='dropdown-btn btn dropdown-toggle py-0'
                                     data-bs-toggle='dropdown'
                                     aria-expanded='false'
                                 >
                                     <img
-                                        src='https://api.dicebear.com/8.x/adventurer-neutral/svg?seed=Kiki'
+                                        src='https://api.dicebear.com/8.x/thumbs/svg?backgroundColor=252525&shapeColor=ffffff&mouth=variant2&eyes=variant4W10'
                                         class='rounded-circle'
-                                        width='50'
-                                        height='50'
+                                        width='40'
+                                        height='40'
                                         alt='profile picture'
+                                        style="border: 2px solid #252525"
                                     />
                                 </button>
                                 <ul class='dropdown-menu dropdown-menu-end'>
                                     <li class='px-3'>
                                         <p class='m-0'>
-                                            Ardi
+                                            {{auth.user.username}}
                                         </p>
                                     </li>
                                     <li class='px-3'>
                                         <p class='m-0'>
-                                            ardi@gmail.com
+                                            {{auth.user.email}}
                                         </p>
                                     </li>
                                     <li>
@@ -127,6 +133,7 @@
                                 Log Out
                             </a>
                         </li>
+                        {{/if}}
                     </ul>
                 </div>
             </div>
@@ -223,7 +230,7 @@
         <div class='wrapper projects'>
             <div class='showcase'>
                 {{#each projects}}
-                    <div class='project-card'>
+                    <div class='project-card shadow'>
                         <a
                             href='/detail/{{this.id}}'
                             class='project-detail-link'
@@ -242,6 +249,7 @@
                         <div class='tech-group'>
                             {{{this.techHTML}}}
                         </div>
+                        {{#if ../auth.isLoggedIn}}
                         <div class='button-group'>
                             <a
                                 href='/edit-project/{{this.id}}'
@@ -253,6 +261,7 @@
                                 Delete
                             </button>
                         </div>
+                        {{/if}}
                     </div>
                 {{/each}}
             </div>

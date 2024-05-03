@@ -46,31 +46,40 @@
                                 class='nav-link fw-semibold'
                                 aria-current='page'
                                 href='/index'
-                            >Home</a>
+                            >
+                                Home
+                            </a>
                         </li>
-                        <li class='nav-item'>
-                            <a class='nav-link fw-semibold active' href='#'>Add
-                                Project</a>
-                        </li>
+                        {{#if auth.isLoggedIn}}
+                            <li class='nav-item'>
+                                <a class='nav-link fw-semibold active' href='#'>
+                                    Add Project
+                                </a>
+                            </li>
+                        {{/if}}
                         <li class='nav-item'>
                             <a
                                 class='nav-link fw-semibold'
                                 href='/testimonials'
-                            >Testimonials</a>
+                            >
+                                Testimonials
+                            </a>
                         </li>
                     </ul>
 
                     <ul class='navbar-nav align-items-lg-center gap-lg-3'>
-                        <li class='nav-item'>
-                            <a class='nav-link fw-semibold' href='/login'>
-                                Log In
-                            </a>
-                        </li>
-                        <li class='nav-item mb-2 mb-lg-0'>
-                            <a class='nav-link fw-semibold' href='/signup'>
-                                Sign Up
-                            </a>
-                        </li>
+                        {{#unless auth.isLoggedIn}}
+                            <li class='nav-item'>
+                                <a class='nav-link fw-semibold' href='/login'>
+                                    Log In
+                                </a>
+                            </li>
+                            <li class='nav-item mb-2 mb-lg-0'>
+                                <a class='nav-link fw-semibold' href='/signup'>
+                                    Sign Up
+                                </a>
+                            </li>
+                        {{/unless}}
                         <li class='nav-item'>
                             <form class='d-flex mb-0' role='search'>
                                 <a href='/contact' class='btn btn-dark'>
@@ -78,49 +87,55 @@
                                 </a>
                             </form>
                         </li>
-                        <li class='nav-item d-none d-lg-block'>
-                            <div class='btn-group'>
-                                <button
-                                    type='button'
-                                    class='dropdown-btn btn dropdown-toggle'
-                                    data-bs-toggle='dropdown'
-                                    aria-expanded='false'
-                                >
-                                    <img
-                                        src='https://api.dicebear.com/8.x/adventurer-neutral/svg?seed=Kiki'
-                                        class='rounded-circle'
-                                        width='50'
-                                        height='50'
-                                        alt='profile picture'
-                                    />
-                                </button>
-                                <ul class='dropdown-menu dropdown-menu-end'>
-                                    <li class='px-3'>
-                                        <p class='m-0'>
-                                            Ardi
-                                        </p>
-                                    </li>
-                                    <li class='px-3'>
-                                        <p class='m-0'>
-                                            ardi@gmail.com
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <hr class='dropdown-divider' />
-                                    </li>
-                                    <li>
-                                        <a class='dropdown-item' href='/logout'>
-                                            Log out
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class='nav-item d-block d-lg-none'>
-                            <a class='nav-link fw-semibold' href='/logout'>
-                                Log Out
-                            </a>
-                        </li>
+                        {{#if auth.isLoggedIn}}
+                            <li class='nav-item d-none d-lg-block'>
+                                <div class='btn-group'>
+                                    <button
+                                        type='button'
+                                        class='dropdown-btn btn dropdown-toggle py-0'
+                                        data-bs-toggle='dropdown'
+                                        aria-expanded='false'
+                                    >
+                                        <img
+                                            src='https://api.dicebear.com/8.x/thumbs/svg?backgroundColor=252525&shapeColor=ffffff&mouth=variant2&eyes=variant4W10'
+                                            class='rounded-circle'
+                                            width='40'
+                                            height='40'
+                                            alt='profile picture'
+                                            style='border: 2px solid #252525'
+                                        />
+                                    </button>
+                                    <ul class='dropdown-menu dropdown-menu-end'>
+                                        <li class='px-3'>
+                                            <p class='m-0'>
+                                                {{auth.user.username}}
+                                            </p>
+                                        </li>
+                                        <li class='px-3'>
+                                            <p class='m-0'>
+                                                {{auth.user.email}}
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <hr class='dropdown-divider' />
+                                        </li>
+                                        <li>
+                                            <a
+                                                class='dropdown-item'
+                                                href='/logout'
+                                            >
+                                                Log out
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class='nav-item d-block d-lg-none'>
+                                <a class='nav-link fw-semibold' href='/logout'>
+                                    Log Out
+                                </a>
+                            </li>
+                        {{/if}}
                     </ul>
                 </div>
             </div>

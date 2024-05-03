@@ -26,3 +26,22 @@ async function formHandler() {
         window.location.assign('/index')
     }
 }
+
+function passwordExposer() {
+    const exposerBtn = document.querySelector('.password-exposer')
+
+    exposerBtn.addEventListener('click', () => {
+        const exposerIcon = document.querySelector('.password-exposer-icon')
+        const inputPassword = document.getElementById('input-password')
+
+        exposerIcon.classList.toggle('fa-eye')
+
+        if (inputPassword.type === 'text') {
+            return (inputPassword.type = 'password')
+        }
+
+        return (inputPassword.type = 'text')
+    })
+}
+
+passwordExposer()

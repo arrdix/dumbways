@@ -18,13 +18,28 @@ app.use(
         secret: 'personal_web_secret_recipe',
         resave: false,
         saveUninitialized: true,
-        cookie: { secure: false, maxAge: 60000 },
+        cookie: { secure: false, maxAge: 60000 * 60 },
     })
 )
 app.use((req, res, next) => {
-    // to prevent logged user to access login/signup page
-    if (req.url === '/login' || req.url === '/signup') {
-        if (req.session.isLoggedIn) return res.redirect('/index')
+    const isLoggedIn = req.session.isLoggedIn
+
+    // prevent authorized user to access login/signup page
+    if (isLoggedIn) {
+        if (req.url === '/login' || req.url === '/signup') {
+            return res.redirect('/index')
+        }
+    }
+
+    // prevent unauthorized user to add, edit or delete project
+    if (!isLoggedIn) {
+        if (
+            req.originalUrl.startsWith('/edit-project') ||
+            req.originalUrl.startsWith('/project') ||
+            req.url === '/logout'
+        ) {
+            return res.redirect('/login')
+        }
     }
 
     return next()
@@ -47,6 +62,7 @@ app.delete('/project/:id', controllers.deleteProject)
 app.put('/edit-project/:id', controllers.editProject)
 app.post('/login', controllers.login)
 app.post('/signup', controllers.signup)
+app.get('/logout', controllers.logout)
 
 // server
 app.listen(port, () => {

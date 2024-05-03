@@ -7,3 +7,9 @@
         margin-inline: 4rem;
     }
 }
+
+@media screen and (max-width: 776px) {
+    .profile-card {
+        padding-inline: 2rem;
+    }
+}

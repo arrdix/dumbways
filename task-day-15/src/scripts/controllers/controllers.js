@@ -11,17 +11,28 @@ const sequelize = new Sequelize(config.development)
 const controllers = {
     // views
     async homeView(req, res) {
+        const isLoggedIn = req.session.isLoggedIn
+        const user = req.session.user
+
         const responses = await projectsModel.findAll()
 
         const projects = responses.map((response) => {
             return utils.prepareProject(response.dataValues)
         })
 
-        res.render('index', { projects })
+        res.render('index', {
+            projects,
+            auth: {
+                isLoggedIn,
+                user,
+            },
+        })
     },
 
     async editProjectView(req, res) {
         const { id } = req.params
+        const isLoggedIn = req.session.isLoggedIn
+        const user = req.session.user
 
         const response = await projectsModel.findOne({
             where: {
@@ -35,11 +46,19 @@ const controllers = {
             requestedProject[tech] = 'checked'
         })
 
-        res.render('edit-project', requestedProject)
+        res.render('edit-project', {
+            project: requestedProject,
+            auth: {
+                isLoggedIn,
+                user,
+            },
+        })
     },
 
     async detailView(req, res) {
         const { id } = req.params
+        const isLoggedIn = req.session.isLoggedIn
+        const user = req.session.user
 
         const response = await projectsModel.findOne({
             where: {
@@ -49,19 +68,49 @@ const controllers = {
 
         const requestedProject = utils.prepareProject(response.dataValues)
 
-        res.render('detail', requestedProject)
+        res.render('detail', {
+            project: requestedProject,
+            auth: {
+                isLoggedIn,
+                user,
+            },
+        })
     },
 
     addProjectView(req, res) {
-        res.render('project')
+        const isLoggedIn = req.session.isLoggedIn
+        const user = req.session.user
+
+        res.render('project', {
+            auth: {
+                isLoggedIn,
+                user,
+            },
+        })
     },
 
     testimonialView(req, res) {
-        res.render('testimonials')
+        const isLoggedIn = req.session.isLoggedIn
+        const user = req.session.user
+
+        res.render('testimonials', {
+            auth: {
+                isLoggedIn,
+                user,
+            },
+        })
     },
 
     contactView(req, res) {
-        res.render('contact')
+        const isLoggedIn = req.session.isLoggedIn
+        const user = req.session.user
+
+        res.render('contact', {
+            auth: {
+                isLoggedIn,
+                user,
+            },
+        })
     },
 
     loginView(req, res) {
@@ -150,6 +199,7 @@ const controllers = {
         req.session.isLoggedIn = true
         req.session.user = {
             username: user.username,
+            email: user.email,
         }
 
         return res.json({ message: 'Logged in!' })
@@ -165,11 +215,16 @@ const controllers = {
                 password: await bcrypt.hash(password, saltRounds),
             })
 
-            return res.json({ message: 'Account created!' })
+            return res.status(200).json({ success: true })
         } catch (err) {
             const errorMessage = err.errors[0].message
-            return res.json({ message: `${errorMessage}` })
+            return res.status(500).json({ success: false })
         }
+    },
+
+    logout(req, res) {
+        req.session.destroy()
+        res.redirect('/index')
     },
 }
 

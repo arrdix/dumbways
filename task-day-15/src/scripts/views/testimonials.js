@@ -65,7 +65,7 @@ function cardCreator(testimonial) {
     const { name, rating, testimony, image } = testimonial
 
     return `
-        <div class="card">
+        <div class="card shadow border-0">
             <img src="${image}" class="testi-image" alt="testimony image">
             <p class="testi-text">${testimony}</p>
             <h3 class="testi-name">${name}</h3>
