@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
             description: DataTypes.TEXT,
             technologies: DataTypes.ARRAY(DataTypes.STRING),
             image: DataTypes.STRING,
+            userId: DataTypes.INTEGER,
         },
         {
             sequelize,
