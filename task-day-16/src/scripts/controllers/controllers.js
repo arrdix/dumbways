@@ -14,7 +14,12 @@ const controllers = {
         const isLoggedIn = req.session.isLoggedIn
         const user = req.session.user
 
-        const responses = await projectsModel.findAll()
+        const responses = await projectsModel.findAll({
+            include: {
+                model: usersModel,
+                as: 'author',
+            },
+        })
 
         const projects = responses.map((response) => {
             return utils.prepareProject(response.dataValues)
@@ -63,6 +68,10 @@ const controllers = {
         const response = await projectsModel.findOne({
             where: {
                 id: id,
+            },
+            include: {
+                model: usersModel,
+                as: 'author',
             },
         })
 
@@ -125,6 +134,7 @@ const controllers = {
     async createProject(req, res) {
         const { name, start, end, summary, description, technologies, image } =
             req.body
+        const userId = req.session.user.userId
 
         await projectsModel.create({
             name,
@@ -134,6 +144,7 @@ const controllers = {
             description,
             technologies,
             image: '/assets/images/jennie.jpg',
+            userId: userId,
         })
 
         res.send({ status: 'Ok!' })
@@ -199,6 +210,7 @@ const controllers = {
         // storing session data
         req.session.isLoggedIn = true
         req.session.user = {
+            userId: user.id,
             username: user.username,
             email: user.email,
         }

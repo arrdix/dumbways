@@ -47,6 +47,15 @@
     margin: 0;
     margin-bottom: 1.5rem;
 }
+.project-author {
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: 500;
+    color: black;
+}
+.uppercase {
+    text-transform: uppercase;
+}
 .project-summary {
     font-size: 0.9rem;
     font-weight: 400;
