@@ -5,11 +5,17 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 async function getTestimonials() {
+    const spinner = document.querySelector('.spinner')
+
     try {
+        spinner.classList.remove('d-none')
+
         const response = await getTesimonialData()
         initTestimonials(response)
     } catch (err) {
         throw new Error(err)
+    } finally {
+        spinner.classList.add('d-none')
     }
 }
 
