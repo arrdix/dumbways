@@ -13,17 +13,30 @@ async function formHandler() {
     const validatedData = helpers.formValidation(inputs)
 
     if (validatedData) {
+        const spinner = document.querySelector('.spinner')
         const baseUrl = window.location.origin
 
-        await fetch(`${baseUrl}/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(validatedData),
-        })
+        try {
+            spinner.classList.remove('d-none')
 
-        window.location.assign('/index')
+            const response = await fetch(`${baseUrl}/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(validatedData),
+            })
+
+            if (!response.ok) {
+                return window.location.assign('/login')
+            }
+
+            return window.location.assign('/index')
+        } catch (err) {
+            throw new Error(err)
+        } finally {
+            spinner.classList.add('d-none')
+        }
     }
 }
 

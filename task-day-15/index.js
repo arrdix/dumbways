@@ -3,6 +3,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const controllers = require('./src/scripts/controllers/controllers')
 const session = require('express-session')
+const flash = require('express-flash')
 
 const app = express()
 const port = 8989
@@ -13,6 +14,7 @@ app.set('views', path.join(__dirname, './src/views'))
 // middlewares
 app.use(express.static(path.join(__dirname, './src')))
 app.use(bodyParser.json())
+app.use(flash())
 app.use(
     session({
         secret: 'personal_web_secret_recipe',
@@ -38,6 +40,7 @@ app.use((req, res, next) => {
             req.originalUrl.startsWith('/project') ||
             req.url === '/logout'
         ) {
+            req.flash('forbid', 'Please login to access the requested page.')
             return res.redirect('/login')
         }
     }

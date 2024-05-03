@@ -192,7 +192,8 @@ const controllers = {
         )
 
         if (!user || !isPasswordMatch) {
-            return res.json({ message: 'Username/password was incorrect!' })
+            req.flash('auth', 'Sorry, your username/password was incorrect!')
+            return res.status(500).send({ success: true })
         }
 
         // storing session data
@@ -202,7 +203,7 @@ const controllers = {
             email: user.email,
         }
 
-        return res.json({ message: 'Logged in!' })
+        return res.status(200).send({ success: false })
     },
 
     async signup(req, res) {
@@ -217,7 +218,7 @@ const controllers = {
 
             return res.status(200).json({ success: true })
         } catch (err) {
-            const errorMessage = err.errors[0].message
+            req.flash('auth', `Sorry, the ${err.errors[0].message}!`)
             return res.status(500).json({ success: false })
         }
     },

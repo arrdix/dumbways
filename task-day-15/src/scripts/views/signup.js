@@ -14,9 +14,12 @@ async function formHandler() {
     const validatedData = helpers.formValidation(inputs)
 
     if (validatedData) {
+        const spinner = document.querySelector('.spinner')
         const baseUrl = window.location.origin
 
         try {
+            spinner.classList.remove('d-none')
+
             const response = await fetch(`${baseUrl}/signup`, {
                 method: 'POST',
                 headers: {
@@ -25,11 +28,15 @@ async function formHandler() {
                 body: JSON.stringify(validatedData),
             })
 
-            if (!response.ok) return window.location.assign('/signup')
+            if (!response.ok) {
+                return window.location.assign('/signup')
+            }
 
             return window.location.assign('/login')
         } catch (err) {
-            console.log(err)
+            throw new Error(err)
+        } finally {
+            spinner.classList.add('d-none')
         }
     }
 }

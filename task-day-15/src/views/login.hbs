@@ -10,9 +10,19 @@
         />
         <link rel='stylesheet' href='/assets/styles/custom.css' />
         <link rel='stylesheet' href='/assets/styles/login.css' />
-        <title>Login | Personal Web</title>
+        <title>Log In | Personal Web</title>
     </head>
     <body>
+        {{#if messages.auth}}
+            <div class='alert alert-danger' role='alert'>
+                {{messages.auth}}
+            </div>
+        {{/if}}
+        {{#if messages.forbid}}
+            <div class='alert alert-warning' role='alert'>
+                {{messages.forbid}}
+            </div>
+        {{/if}}
         <div
             class='container-fluid d-flex justify-content-center align-items-center'
             style='height: 100%'
@@ -79,7 +89,11 @@
 
                         <div class='form-item mb-3 w-75'>
                             <button class='btn btn-dark px-5 w-100'>
-                                Log In
+                                <span
+                                    class='spinner spinner-border spinner-border-sm d-none'
+                                    aria-hidden='true'
+                                ></span>
+                                <span role='status'>Log In</span>
                             </button>
                         </div>
                     </form>
