@@ -1,5 +1,5 @@
 const config = require('../../../../config/config.json')
-const { Sequelize, QueryTypes } = require('sequelize')
+const { Sequelize, QueryTypes, where } = require('sequelize')
 const utils = require('../utils/utils.js')
 const projectsModel = require('../../../../models').projects
 const usersModel = require('../../../../models').users
@@ -18,7 +18,9 @@ const controllers = {
             include: {
                 model: usersModel,
                 as: 'author',
+                required: true, // using INNER JOIN
             },
+            where: isLoggedIn ? { userId: user.userId } : {},
         })
 
         const projects = responses.map((response) => {

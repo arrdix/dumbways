@@ -3,6 +3,14 @@ select,
 textarea {
     box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.1);
 }
+input:focus,
+textarea:focus {
+    box-shadow: 0 0 5px 2.5px rgba(0, 0, 0, 0.15) !important;
+    border-color: darkgrey !important;
+}
+label {
+    cursor: pointer;
+}
 input[type='checkbox'] {
     width: auto;
     margin: 0;
