@@ -24,7 +24,7 @@ const helpers = {
             return {
                 ...validatedInputs,
                 technologies: techs,
-                image: image,
+                image: inputImage,
             }
         }
     },
@@ -100,6 +100,16 @@ const helpers = {
 
         labelWarning.classList.add('invisible')
         return URL.createObjectURL(image)
+    },
+
+    createFormData(project) {
+        const formData = new FormData()
+
+        for (const key in project) {
+            formData.append(`${key}`, project[key])
+        }
+
+        return formData
     },
 }
 

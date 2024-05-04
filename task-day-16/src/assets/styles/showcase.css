@@ -51,10 +51,11 @@
     font-size: 0.9rem;
     margin: 0;
     font-weight: 500;
-    color: black;
+    color: darkgray;
 }
 .uppercase {
     text-transform: uppercase;
+    color: black;
 }
 .project-summary {
     font-size: 0.9rem;

@@ -132,7 +132,7 @@ const controllers = {
 
     // services
     async createProject(req, res) {
-        const { name, start, end, summary, description, technologies, image } =
+        const { name, start, end, summary, description, technologies } =
             req.body
         const userId = req.session.user.userId
 
@@ -142,8 +142,8 @@ const controllers = {
             end,
             summary,
             description,
-            technologies,
-            image: '/assets/images/jennie.jpg',
+            technologies: technologies.split(','),
+            image: req.file.filename,
             userId: userId,
         })
 
@@ -174,8 +174,8 @@ const controllers = {
                 end,
                 summary,
                 description,
-                technologies,
-                image: '/assets/images/jennie.jpg',
+                technologies: technologies.split(','),
+                image: req.file.filename,
             },
             {
                 where: {

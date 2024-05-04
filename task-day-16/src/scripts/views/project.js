@@ -15,10 +15,8 @@ document
 
                 await fetch(`${baseUrl}/project`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(project),
+                    // send the whole project as a multipart
+                    body: helpers.createFormData(project),
                 })
 
                 window.location.assign('/index')
